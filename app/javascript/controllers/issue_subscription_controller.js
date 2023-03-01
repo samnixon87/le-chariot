@@ -14,4 +14,8 @@ export default class extends Controller {
     console.log(`Subscribe to the Issue chatroom with the id ${this.issueIdValue}.`)
   }
 
+  disconnect() {
+    console.log(`Unsubscribe from the Issue chatroom with the id ${this.issueIdValue}.`)
+    this.channel.unsubscribe()
+  }
 }
