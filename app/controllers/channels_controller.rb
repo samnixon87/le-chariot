@@ -1,8 +1,6 @@
 class ChannelsController < ApplicationController
   def show
-    # @channel = Channel.find(params[:id])
-    @issue = Issue.find(params[:id])
-    @message = Message.new
+    @channel = Channel.find(params[:id])
   end
 
   def index
