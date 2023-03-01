@@ -15,7 +15,7 @@ export default class extends Controller {
   }
 
   disconnect() {
-    console.log(`Unsubscribe from the Issue chatroom with the id ${this.issueIdValue}.`)
+    console.log(`Unsubscribe from the Issue chatroom with the id ${this.issueIdValue}.`);
     this.channel.unsubscribe()
   }
 
@@ -24,7 +24,9 @@ export default class extends Controller {
   }
 
   #insertMessageAndScrollDown(data) {
-    this.messagesTarget.insertAdjacentHTML("beforeend", data)
-    this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
+
+    this.messagesTarget.insertAdjacentHTML("beforeend", data);
+    this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight);
+    console.log(`testing`)
   }
 }
