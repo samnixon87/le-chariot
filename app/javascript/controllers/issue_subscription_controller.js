@@ -9,7 +9,7 @@ export default class extends Controller {
   connect() {
     this.channel = createConsumer().subscriptions.create(
       { channel: "IssueChannel", id: this.issueIdValue },
-      { received: data => this.messagesTarget.insertAdjacentHTML("beforeend", data) }
+      { received: data => this.#insertMessageAndScrollDown(data) }
     )
     console.log(`Subscribe to the Issue chatroom with the id ${this.issueIdValue}.`)
   }
@@ -21,5 +21,10 @@ export default class extends Controller {
 
   resetForm(event) {
     event.target.reset()
+  }
+
+  #insertMessageAndScrollDown(data) {
+    this.messagesTarget.insertAdjacentHTML("beforeend", data)
+    this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
   }
 }
