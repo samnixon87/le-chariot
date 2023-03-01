@@ -22,7 +22,7 @@
           </div>
         </div>
         <div class="message-input">
-          <%= simple_form_for [@issue, @message], html: {class: "d-flex"} do |f| %>
+          <%= simple_form_for [@issue, @message], html: { data: { action: "turbo:submit-end->issue-subscription#resetForm" }, class: "d-flex" } do |f| %>
             <%= f.input :content,
               label: false,
               placeholder: "Message ##{@issue.title}",

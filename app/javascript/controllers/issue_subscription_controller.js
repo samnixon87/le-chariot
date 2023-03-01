@@ -18,4 +18,8 @@ export default class extends Controller {
     console.log(`Unsubscribe from the Issue chatroom with the id ${this.issueIdValue}.`)
     this.channel.unsubscribe()
   }
+
+  resetForm(event) {
+    event.target.reset()
+  }
 }
