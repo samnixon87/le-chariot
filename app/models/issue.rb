@@ -1,4 +1,5 @@
 class Issue < ApplicationRecord
-  belongs_to :user, :channel
-  has_many :suggested_answers
+  belongs_to :user
+  belongs_to :channel
+  has_many :suggested_answers, dependent: :destroy
 end
