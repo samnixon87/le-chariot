@@ -10,9 +10,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_06_150018) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_06_161407) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "channels", force: :cascade do |t|
+    t.string "name"
+    t.bigint "issue_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["issue_id"], name: "index_channels_on_issue_id"
+  end
+
+  create_table "issues", force: :cascade do |t|
+    t.string "description"
+    t.integer "rating"
+    t.bigint "users_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "channel_id", null: false
+    t.index ["channel_id"], name: "index_issues_on_channel_id"
+    t.index ["users_id"], name: "index_issues_on_users_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.integer "rating"
+    t.string "content"
+    t.bigint "users_id", null: false
+    t.bigint "issue_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["issue_id"], name: "index_messages_on_issue_id"
+    t.index ["users_id"], name: "index_messages_on_users_id"
+  end
+
+  create_table "suggested_answers", force: :cascade do |t|
+    t.bigint "issue_id", null: false
+    t.bigint "message_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["issue_id"], name: "index_suggested_answers_on_issue_id"
+    t.index ["message_id"], name: "index_suggested_answers_on_message_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,4 +65,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_06_150018) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "channels", "issues"
+  add_foreign_key "issues", "channels"
+  add_foreign_key "issues", "users", column: "users_id"
+  add_foreign_key "messages", "issues"
+  add_foreign_key "messages", "users", column: "users_id"
+  add_foreign_key "suggested_answers", "issues"
+  add_foreign_key "suggested_answers", "messages"
 end
