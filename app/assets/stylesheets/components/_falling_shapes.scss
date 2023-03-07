@@ -40,7 +40,7 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background-color: #F5CE60;
+  background-color: $yellow;
   /*animation: fs-circle-place-2 0.5s forwards ease-in 4.9s;*/
 }
 @keyframes fs-circle {
@@ -62,7 +62,7 @@
   100% { left: calc(-50% - 10px); }
 }*/
 .falling-shapes .fs-square {
-  background-color: #77CEBC;
+  background-color: $green;
   animation: fs-square 1s forwards linear 0.8s, fs-square-move 2s forwards linear 1.2s; /* , fs-square-place-2 0.5s forwards ease-out 4.8s */
   z-index: 1;
 }
