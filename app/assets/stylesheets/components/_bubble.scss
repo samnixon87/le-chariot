@@ -1,0 +1,18 @@
+.bubble {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1px;
+  background-color:#E6E7EA;
+  color: white;
+  font-size: 0.8rem;
+  width: 10%;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.bubble:active {
+  background-color:#F75606;
+  color: white;
+  font-weight:bold;
+}
