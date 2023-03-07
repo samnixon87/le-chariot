@@ -1,15 +1,14 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+    <%= link_to "/", class: "navbar-brand" do %>
+      <%# <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+      <div class="logotype"><span><strong>Le</strong></span>Chariot</div>
     <% end %>
-
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
+      <ul class="navbar-nav me-auto d-flex align-items-center">
         <% if user_signed_in? %>
           <li class="nav-item active">
             <%= link_to "Home", "#", class: "nav-link" %>
@@ -26,11 +25,23 @@
             </div>
           </li>
         <% else %>
+          <i class="fa-solid fa-sun"></i>
+          <label class="switch">
+            <input type="checkbox" onchange="darkMode()">
+            <span class="slider round"></span>
+          </label>
+          <i class="fa-solid fa-moon"></i>
           <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
           </li>
         <% end %>
       </ul>
     </div>
   </div>
 </div>
+<script>
+  function darkMode() {
+     var element = document.body;
+     element.classList.toggle("dark-mode");
+  }
+</script>
