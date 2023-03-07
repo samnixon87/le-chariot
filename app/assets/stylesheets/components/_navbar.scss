@@ -1,5 +1,15 @@
 .navbar-lewagon {
-  justify-content: space-evenly;
+  justify-content: space-between;
+  background: white;
+  border-bottom: 1px solid black;
+}
+
+.dark-mode {
+  .navbar-lewagon {
+    justify-content: space-between;
+    background: #212125;
+    border-bottom: 1px solid #5f6368;
+  }
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -8,4 +18,110 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.dark-mode {
+  .navbar-lewagon .navbar-brand {
+    color: white;
+  }
+}
+
+.navbar-lewagon .logotype {
+  font-size: 1.2em;
+  // font-weight: 300;
+}
+
+
+.navbar-lewagon .nav-link {
+  color: black;
+  font-size: 0.95em;
+}
+
+.dark-mode {
+  .navbar-lewagon .nav-link {
+    color: white;
+    font-size: 0.95em;
+  }
+}
+
+.navbar-lewagon .nav-item {
+  color: black;
+  font-size: 0.95em;
+}
+
+// Toggle Button
+// FA icons styling
+.navbar-lewagon .fa-solid {
+  color: #dddddd;
+}
+
+.dark-mode {
+  .navbar-lewagon .fa-solid {
+    color: white;
+  }
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 55px;
+  height: 28px;
+  margin-right: 8px;
+  margin-left: 8px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked+.slider {
+  background-color: $blue;
+}
+
+input:focus+.slider {
+  box-shadow: 0 0 1px $blue;
+}
+
+input:checked+.slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }
