@@ -1,60 +1,37 @@
-.card-wide {
+.wide {
   background-color: #52F4D6;
-  display: flex;
-  flex-direction: column;
-  width: 40%;
-  padding: 4px;
-  margin: 4px;
-  border-radius: 1px;
 }
 
-.card-narrow-yellow {
-  display: flex;
-  flex-direction: column;
+.yellow {
   background-color: #E3ED45;
-  padding: 4px;
-  margin: 4px;
-  border-radius: 1px;
 }
 
-.card-narrow-pink {
-  display: flex;
-  flex-direction: column;
+.pink {
   background-color: #F45270;
-  padding: 4px;
-  margin: 4px;
-  border-radius: 1px;
 }
 
-.card-narrow-pink .header {
-  
+.pink .header {
+  font-size: 0.7rem;
 }
 
-.card-narrow-pink .title {
-
+.pink .title {
+  font-size: 2rem;
 }
 
-.card-narrow-pink .content {
+.pink .content {
 
 }
 
-.card-narrow-yellow {
-  display: flex;
-  flex-direction: column;
-  background-color: #E3ED45;
-  padding: 4px;
-  margin: 4px;
-  border-radius: 1px;
+.header {
+  font-size: 0.7rem;
+  font-weight: lighter;
 }
 
-.card-narrow-pink .header {
-
+.title {
+  font-size: 2rem;
+  font-weight: bold;
 }
 
-.card-narrow-pink .title {
-
-}
-
-.card-narrow-pink .content {
+.content {
 
 }
