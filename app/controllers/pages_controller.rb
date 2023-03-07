@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[home index]
+  skip_before_action :authenticate_user!, only: %i[home chat]
 
   def home
   end
