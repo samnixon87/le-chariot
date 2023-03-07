@@ -3,7 +3,10 @@ body {
 }
 
 .message-list {
-  margin: 20px;
+  height: 600px;
+  overflow: auto;
+  margin-top: 10px;
+  margin-bottom: 10px
 }
 
 .message {
@@ -37,6 +40,10 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.message-content:hover {
+  background-color: #efefef;
 }
 
 .dark-mode {
