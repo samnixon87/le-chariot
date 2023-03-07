@@ -1,0 +1,21 @@
+<div class="container channel"
+  data-controller="channel-subscription"
+  data-channel-subscription-channel-id-value="<%= @channel.id %>"
+>
+  <h1>#<%= @channel.name %></h1>
+
+  <div class="messages" data-channel-subscription-target="messages">
+    <% @channel.chatroom_messages.each do |message| %>
+      <%= render "chatroom_messages/chatroom_message", message: message %>
+    <% end %>
+  </div>
+
+  <%= simple_form_for [@channel, @chatroom_message], html: {class: "d-flex"} do |f| %>
+    <%= f.input :content,
+      label: false,
+      placeholder: "Message ##{@channel.name}",
+      wrapper_html: {class: "flex-grow-1"}
+    %>
+    <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+  <% end %>
+</div>
