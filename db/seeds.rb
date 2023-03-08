@@ -21,7 +21,7 @@ pp "Reincarnating users..."
 10.times do
   User.create!(
     email: Faker::Internet.safe_email,
-    password: Faker::Internet.password(min_length: 10, max_length: 20),
+    password: "123456",
     first_name: Faker::Name.first_name,
     last_name: Faker::Games::ElderScrolls.last_name,
     batch: 1122,
@@ -48,8 +48,10 @@ user_seed_id = User.first.id
 channel_seed_id = Channel.first.id
 
 5.times do
+  hobby = Faker::Hobby.activity
   Issue.create!(
-    description: "I need someone to explain #{Faker::Hobby.activity} to me in detail.",
+    title: "Help with #{hobby}",
+    description: "I need someone to explain #{hobby} to me in detail.",
     rating: rand(1..5),
     channel_id: channel_seed_id,
     user_id: user_seed_id
