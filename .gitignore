@@ -39,3 +39,6 @@
 # Ignore Mac and Linux file system files
 *.swp
 .DS_Store
+
+# Ignore intialisers because that's where keys live
+/config/initializers
