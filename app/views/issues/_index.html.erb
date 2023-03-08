@@ -1,9 +1,10 @@
 <div class="issue-list">
   <% @channels.each do |channel| %>
-    <div class="issue active"
-          data-controller="channel-subscription"
-          data-channel-subscription-channel-id-value="<%= channel.id %>">
-      <%= link_to channel.name, channel_path(channel.id) %>
+    <div class="issue"
+          data-controller="issue-subscription"
+          data-channel-subscription-channel-id-value="<%= channel.id %>"
+          data-issues-messages-target="link">
+      <%= link_to channel.name, channel_path(channel.id), data: {action: "issues-messages#render"} %>
       <%# Stimulus action here %>
     </div>
   <% end %>

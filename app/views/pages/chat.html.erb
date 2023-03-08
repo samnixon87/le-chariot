@@ -1,6 +1,6 @@
 <!-- Languages column -->
 <div class="row"
-  <%# add stimulus controller here %>
+  data-controller="issues-messages"
   >
   <div class="col-1 bg-dark p-3 border-right border-black">
     <div class="d-flex justify-content-center">
@@ -17,8 +17,8 @@
     </div>
   </div>
   <!-- Issue messages column -->
-  <div class="col-8">
-  <%# Set stimulus target here %>
+  <div class="col-8"
+        data-issues-messages-target="messages">
     <%= render "issues/index" %>
   </div>
 </div>
