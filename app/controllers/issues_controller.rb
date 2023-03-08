@@ -30,7 +30,7 @@ class IssuesController < ApplicationController
   private
 
   def issue_params
-    params.require(:issue).permit(:content, :description, :rating, :user_id, :created_at,
+    params.require(:issue).permit(:description, :rating, :user_id, :created_at,
                                   :updated_at, :channel_id, :title, :code_block)
   end
 end
