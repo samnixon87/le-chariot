@@ -1,6 +1,6 @@
-<div class="channel-list">
+<div class="issue-list">
   <% @channels.each do |channel| %>
-    <div class="channel-img"
+    <div class="issue active"
           data-controller="channel-subscription"
           data-channel-subscription-channel-id-value="<%= channel.id %>">
       <%= link_to channel.name, channel_path(channel.id) %>

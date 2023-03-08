@@ -1,0 +1,69 @@
+.issue-list {
+  overflow-y: scroll;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-right: 1px solid #ddd;
+}
+
+.dark-mode {
+  .issue-list {
+    background-color: #3c4043;
+    border-right: solid 1px #5f6368;
+  }
+}
+
+.issue-column {
+  overflow-y: scroll;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-right: 1px solid #ddd;
+}
+
+.dark-mode {
+  .issue-column {
+    background-color: #3c4043;
+    border-right: solid 1px #5f6368;
+  }
+}
+
+.issue-header {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 10px;
+}
+
+.issue-header img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.issue {
+  display: block;
+  padding: 5px;
+  border-bottom: 1px solid #ddd;
+}
+
+.dark-mode {
+  .issue {
+    background-color: #3c4043;
+    border-right: solid 1px #5f6368;
+  }
+}
+
+.issue.active {
+  background-color: #fff;
+  font-weight: bold;
+  color: #333;
+}
+
+.issue:hover {
+  background-color: #f5f5f5;
+  cursor: pointer;
+}

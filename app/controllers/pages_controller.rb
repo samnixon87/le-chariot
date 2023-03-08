@@ -10,6 +10,10 @@ class PagesController < ApplicationController
     AiRequestJob.perform_later(ai_request_params, @api_key)
   end
 
+  def chat
+    @channels = Channel.all
+  end
+
   private
 
   def ai_request_params
