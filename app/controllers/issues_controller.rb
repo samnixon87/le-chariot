@@ -5,10 +5,12 @@ class IssuesController < ApplicationController
   end
 
   def show
+    @channel = Channel.find(params[:channel_id])
     @issue = Issue.find(params[:id])
   end
 
   def index
+    @channel = Channel.find(params[:channel_id])
     @issues = Issue.all
   end
 
