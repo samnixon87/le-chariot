@@ -4,8 +4,8 @@
 
 import { application } from "./application"
 
-import ChannelSubscriptionController from "./channel_subscription_controller"
-application.register("channel-subscription", ChannelSubscriptionController)
+import IssueSubscriptionController from "./issue_subscription_controller"
+application.register("issue-subscription", IssueSubscriptionController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)

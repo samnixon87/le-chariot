@@ -20,16 +20,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_115012) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "chatroom_messages", force: :cascade do |t|
-    t.string "content"
-    t.bigint "channel_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["channel_id"], name: "index_chatroom_messages_on_channel_id"
-    t.index ["user_id"], name: "index_chatroom_messages_on_user_id"
-  end
-
   create_table "chatrooms", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -87,16 +77,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_115012) do
     t.integer "batch"
     t.boolean "role"
     t.string "nickname"
-    t.string "provider"
-    t.string "uid"
-    t.string "name"
-    t.string "username"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "chatroom_messages", "channels"
-  add_foreign_key "chatroom_messages", "users"
   add_foreign_key "issues", "channels"
   add_foreign_key "issues", "users"
   add_foreign_key "messages", "issues"
