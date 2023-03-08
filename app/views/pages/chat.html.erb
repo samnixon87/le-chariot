@@ -3,7 +3,6 @@
   <div class="col-1 bg-dark p-3 border-right border-black">
     <div class="d-flex justify-content-center">
        <%= render "channels/index" %>
-      <!-- Language title will be iterated through and displayed here -->
     </div>
   </div>
   <!-- Issues list column -->
@@ -15,34 +14,8 @@
       </div>
     </div>
   </div>
-  <!-- Should implement a sticky "new issue" button here -->
   <!-- Issue messages column -->
   <div class="col-8">
-    <div class="container">
-      <div class="message-list">
-          <!-- Issue messages will iterated through and displayed here -->
-        <div class="message">
-          <div class="message-content">
-            <div class="message-header">
-              <div class="message-img">
-                <img src="https://via.placeholder.com/50x50" alt="User Image">
-              </div>
-              <div class="message-name">Jane Smith</div>
-              <div class="message-time">3 hours ago</div>
-            </div>
-            <div class="message-body">
-              Sed ultricies lacus non leo ullamcorper, quis molestie lectus accumsan. Proin imperdiet felis sit amet
-              lacus iaculis, vitae pulvinar velit pharetra. Sed eget nunc ullamcorper, tempor metus in, fringilla
-              enim.
-            </div>
-            <div class="message-actions">
-              <button type="button" class="btn btn-secondary">Like</button>
-              <button type="button" class="btn btn-secondary">Reply</button>
-              <button type="button" class="btn btn-primary">Answer with AI</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <%= render "issues/index" %>
   </div>
 </div>
