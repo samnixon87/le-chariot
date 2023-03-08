@@ -10,7 +10,7 @@ class IssuesController < ApplicationController
     @issue.user_id = current_user.id
     @issue.user_id = User.find(params[:user_id]).id
     if @issue.save
-      redirect_to user_path(current_user), notice: "Issue successful!"
+      redirect_to user_path(current_user), notice: "Issue created successfully!"
     else
       render :new, status: :unprocessable_entity
     end
