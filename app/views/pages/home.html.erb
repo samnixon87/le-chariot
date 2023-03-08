@@ -3,6 +3,19 @@
   <h1>Ask technical questions, get helpful answers</h1>
   <h2>* even after the bootcamp</h2>
 </div>
+
+<%# AI Stuff %>
+<div class="container mt-5">
+  <h1>Pages#home</h1>
+  <p>Find me in app/views/pages/home.html.erb</p>
+  <%= render partial: "ai/request_form", locals: { uuid: @uuid } %>
+  <%= turbo_stream_from "channel_#{@uuid}" %>
+  <%# <div id="ai_output">
+    <%= render partial: "ai/output", locals: { generated_idea: "" } %>
+  </div>
+</div>
+<%# AI Stuff %>
+
 <div class="container">
   <div class="row">
     <div class="card-grid">

@@ -78,3 +78,10 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+
+# OpenAI Gem
+gem "ruby-openai"
+
+gem "faraday", "~> 2.7"
+gem "foreman", github: "ddollar/foreman"
