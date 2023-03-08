@@ -44,15 +44,18 @@ end
 # Create new issues
 pp "Creating issue seeds..."
 
-#5.times do
+user_seed_id = User.first.id
+channel_seed_id = Channel.first.id
+
+5.times do
   Issue.create!(
     description: "I need someone to explain #{Faker::Hobby.activity} to me in detail.",
     rating: rand(1..5),
-    channel_id: 1,
-    user_id: 1
+    channel_id: channel_seed_id,
+    user_id: user_seed_id
   )
   pp "Seeding issues..."
-#end
+end
 
 pp "Created #{User.count} users."
 pp "Created #{Issue.count} issues."

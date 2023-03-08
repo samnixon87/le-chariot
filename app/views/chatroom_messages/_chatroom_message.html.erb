@@ -1,0 +1,26 @@
+<div class="message">
+  <div class="message-content">
+    <div class="message-header">
+      <div class="message-img">
+        <img src="https://via.placeholder.com/50x50" alt="User Image">
+      </div>
+      <div class="message-name">Jane Smith</div>
+      <div class="message-time">
+        <%=distance_of_time_in_words(Time.now,message.created_at)%>
+      </div>
+    </div>
+    <div class="message-body">
+      <div id="message-<%= message.id %>">
+        <small>
+          <strong><%= message.user.nickname %></strong>
+        </small>
+        <p><%= message.content %></p>
+      </div>
+    </div>
+    <div class="message-actions">
+      <button type="button" class="btn btn-secondary">Like</button>
+      <button type="button" class="btn btn-secondary">Reply</button>
+      <button type="button" class="btn btn-primary">Answer with AI</button>
+    </div>
+  </div>
+</div>

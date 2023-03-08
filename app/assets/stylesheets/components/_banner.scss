@@ -1,13 +1,20 @@
 .banner {
-  background-color: ffffff;
   background-size: cover;
+  height: 80vh;
+}
 
+.banner-content {
+  width: 50%;
 }
 
 .banner h1 {
-
+  font-size: 4rem;
 }
 
 .banner h2 {
+  font-size: 2rem;
+}
 
+.banner h3 {
+  font-size: 1.5rem;
 }

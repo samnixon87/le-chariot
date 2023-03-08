@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :home ]
+  skip_before_action :authenticate_user!, only: [ :home, :chat ]
   before_action :set_api_key, only: [:ai_request]
   require 'securerandom'
   def home
@@ -19,4 +19,5 @@ class PagesController < ApplicationController
   def set_api_key
     @api_key = Rails.application.credentials.openai[:api_key]
   end
+
 end

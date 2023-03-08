@@ -20,6 +20,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_151613) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "chatroom_messages", force: :cascade do |t|
+    t.string "content"
+    t.bigint "channel_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["channel_id"], name: "index_chatroom_messages_on_channel_id"
+    t.index ["user_id"], name: "index_chatroom_messages_on_user_id"
+  end
+
   create_table "chatrooms", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -29,23 +39,23 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_151613) do
   create_table "issues", force: :cascade do |t|
     t.string "description"
     t.integer "rating"
-    t.bigint "users_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "channel_id", null: false
     t.index ["channel_id"], name: "index_issues_on_channel_id"
-    t.index ["users_id"], name: "index_issues_on_users_id"
+    t.index ["user_id"], name: "index_issues_on_user_id"
   end
 
   create_table "messages", force: :cascade do |t|
     t.integer "rating"
     t.string "content"
-    t.bigint "users_id", null: false
+    t.bigint "user_id", null: false
     t.bigint "issue_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["issue_id"], name: "index_messages_on_issue_id"
-    t.index ["users_id"], name: "index_messages_on_users_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "openais", force: :cascade do |t|
@@ -70,19 +80,21 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_151613) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "nickname"
     t.string "first_name"
     t.string "last_name"
     t.integer "batch"
     t.boolean "role"
+    t.string "nickname"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "chatroom_messages", "channels"
+  add_foreign_key "chatroom_messages", "users"
   add_foreign_key "issues", "channels"
-  add_foreign_key "issues", "users", column: "users_id"
+  add_foreign_key "issues", "users"
   add_foreign_key "messages", "issues"
-  add_foreign_key "messages", "users", column: "users_id"
+  add_foreign_key "messages", "users"
   add_foreign_key "suggested_answers", "issues"
   add_foreign_key "suggested_answers", "messages"
 end

@@ -1,63 +1,54 @@
-.card-wide {
+.wide {
   background-color: #52F4D6;
-  display: flex;
-  flex-direction: column;
-  width: 40%;
-  padding: 4px;
-  margin: 4px;
-  border-radius: 1px;
+  box-shadow: 0 0 1px rgba($color: #000000, $alpha: 0.15);
+  transition: 0.2s;
 }
 
-.card-narrow-yellow {
-  display: flex;
-  flex-direction: column;
+.wide:hover {
+  box-shadow: 0 4px 2px -2px rgba($color: #000000, $alpha: 0.15);
+  transform: translate(0, -10px);
+}
+
+.yellow {
   background-color: #E3ED45;
-  width: 20%;
-  padding: 4px;
-  margin: 4px;
-  border-radius: 1px;
+  box-shadow: 0 0 1px rgba($color: #000000, $alpha: 0.15);
+  transition: 0.2s;
 }
 
-.card-narrow-pink {
-  display: flex;
-  flex-direction: column;
+.yellow:hover {
+  box-shadow: 0 4px 2px -2px rgba($color: #000000, $alpha: 0.15);
+  transform: translate(0, -10px);
+}
+
+.pink {
   background-color: #F45270;
-  width: 20%;
-  padding: 4px;
-  margin: 4px;
-  border-radius: 1px;
+  box-shadow: 0 0 1px rgba($color: #000000, $alpha: 0.15);
+  transition: 0.2s;
 }
 
-.card-narrow-pink .header {
-
+.pink:hover {
+  box-shadow: 0 4px 2px -2px rgba($color: #000000, $alpha: 0.15);
+  transform: translate(0, -10px);
 }
 
-.card-narrow-pink .title {
-
+.pink .header {
+  font-size: 0.7rem;
 }
 
-.card-narrow-pink .content {
-
+.pink .title {
+  font-size: 2rem;
 }
 
-.card-narrow-yellow {
-  display: flex;
-  flex-direction: column;
-  background-color: #E3ED45;
-  width: 20%;
-  padding: 4px;
-  margin: 4px;
-  border-radius: 1px;
-}
-
-.card-narrow-pink .header {
+.pink .content {
 
 }
 
-.card-narrow-pink .title {
-
+.header {
+  font-size: 0.7rem;
+  font-weight: lighter;
 }
 
-.card-narrow-pink .content {
-
+.title {
+  font-size: 2rem;
+  font-weight: bold;
 }
