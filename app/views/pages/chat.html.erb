@@ -6,6 +6,18 @@
         <img src="<%= image_path('js_logo.png') %>" alt="logo" class="rounded border border-white" width="50px" height="50px">
       </div>
     </div>
+    <div class="container mt-5">
+  <h1>Pages#home</h1>
+  <p></p>
+  <%= render partial: "ai/request_form", locals: { uuid: @uuid } %>
+  <%= turbo_stream_from "channel_#{@uuid}" %>
+  <div id="ai_output">
+    <%= render partial: "ai/output", locals: { generated_idea: "" } %>
+  </div>
+  <%# <div id="ai_output_image">
+    <%= render partial: "ai/output_image", locals: { generated_image: "" } %>
+  </div>
+</div>
     <!-- Messages column -->
     <div class="col-3 bg-light">
       <div class="container-fluid">
