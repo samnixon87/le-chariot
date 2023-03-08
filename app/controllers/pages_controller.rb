@@ -17,7 +17,7 @@ class PagesController < ApplicationController
   end
 
   def set_api_key
-    @api_key = Rails.application.credentials.openai[:api_key]
+    @api_key = ENV["SECRET_KEY"]
   end
 
 end
