@@ -1,5 +1,5 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid container">
+  <div class="container-fluid">
     <%= link_to "/", class: "navbar-brand" do %>
       <%# <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
       <div class="logotype"><span><strong>Le</strong></span>Chariot</div>
@@ -10,6 +10,12 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto d-flex align-items-center">
         <% if user_signed_in? %>
+          <i class="fa-solid fa-sun"></i>
+          <label class="switch">
+            <input type="checkbox" onchange="darkMode()">
+            <span class="slider round"></span>
+          </label>
+          <i class="fa-solid fa-moon"></i>
           <li class="nav-item active">
             <%= link_to "Home", "#", class: "nav-link" %>
           </li>
@@ -41,7 +47,7 @@
 </div>
 <script>
   function darkMode() {
-     var element = document.body;
-     element.classList.toggle("dark-mode");
-  }
+    var element = document.body;
+    element.classList.toggle("dark-mode");
+     }
 </script>

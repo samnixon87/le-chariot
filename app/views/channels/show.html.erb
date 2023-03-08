@@ -1,21 +1,38 @@
-<div class="container channel"
-  data-controller="channel-subscription"
-  data-channel-subscription-channel-id-value="<%= @channel.id %>"
->
-  <h1>#<%= @channel.name %></h1>
-
-  <div class="messages" data-channel-subscription-target="messages">
-    <% @channel.chatroom_messages.each do |message| %>
-      <%= render "chatroom_messages/chatroom_message", message: message %>
-    <% end %>
+<!-- Languages column -->
+<div class="">
+  <div class="row">
+    <div class="col-1 bg-dark p-3 border-right border-black">
+      <div class="d-flex justify-content-center">
+        <img src="<%= image_path('js_logo.png') %>" alt="logo" class="rounded border border-white" width="50px" height="50px">
+      </div>
+    </div>
+    <!-- Issues column -->
+    <%= render "channels/index" %>
+    <!-- Messages column -->
   </div>
-
-  <%= simple_form_for [@channel, @chatroom_message], html: {class: "d-flex"} do |f| %>
-    <%= f.input :content,
+  <div class="col-8">
+    <div class="container">
+      <h3 class="mt-2">#<%= @channel.name.downcase %></h3>
+      <div class="message-list">
+        <div
+          data-controller="channel-subscription"
+  data-channel-subscription-channel-id-value="<%= @channel.id %>">
+          <div class="messages" data-channel-subscription-target="messages">
+            <% @channel.chatroom_messages.each do |message| %>
+              <%= render "chatroom_messages/chatroom_message", message: message %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="message-input">
+        <%= simple_form_for [@channel, @chatroom_message], html: {class: "d-flex"} do |f| %>
+          <%= f.input :content,
       label: false,
       placeholder: "Message ##{@channel.name}",
       wrapper_html: {class: "flex-grow-1"}
     %>
-    <%= f.submit "Send", class: "btn btn-primary mb-3" %>
-  <% end %>
-</div>
+          <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
