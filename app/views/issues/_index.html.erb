@@ -4,6 +4,7 @@
           data-controller="channel-subscription"
           data-channel-subscription-channel-id-value="<%= channel.id %>">
       <%= link_to channel.name, channel_path(channel.id) %>
+      <%# Stimulus action here %>
     </div>
   <% end %>
 </div>

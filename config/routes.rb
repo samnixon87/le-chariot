@@ -8,7 +8,11 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :channels, only: :show do
-    resources :chatroom_messages, only: :create
+  resources :channels do
+    resources :issues, only: [:show, :create]
+  end
+
+  resources :issues do
+    resources :messages, only: :create
   end
 end
