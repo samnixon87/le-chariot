@@ -1,5 +1,5 @@
 <div class="message">
-  <div class="message-content">
+  <div class="message-content" data-controller="mark-complete">
     <div class="message-header">
       <div class="message-img">
         <img src="https://via.placeholder.com/50x50" alt="User Image">
@@ -17,12 +17,11 @@
         <p><%= message.content %></p>
       </div>
     </div>
-    <div class="message-actions" id="pinColor" data-controller="mark-complete">
+    <div class="message-actions" id="pinColor">
       <button type="button" class="btn btn-secondary">Like</button>
       <button type="button" class="btn btn-secondary">Reply</button>
       <button type="button" class="btn btn-primary">Answer with AI</button>
-      <button type="button" class="btn btn-primary" id="pinned">Mark answer as correct</button>
-        <%# pin message %>
+      <button type="button" class="btn btn-primary" id="pinned" data-action="click->mark-complete#markComplete">This answer helped me 👍</button>
     </div>
   </div>
 </div>
