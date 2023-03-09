@@ -1,11 +1,11 @@
-<div class="col-8">
+<div class="">
   <% if @issue.nil?  %>
   <div class="container">
     <h3>No issues here</h3>
   </div>
   <% else %>
     <div class="container">
-      <h3 class="mt-2">#<%= @issue.title.downcase %></h3>
+      <h3 class="mt-2"># <%= @issue.title.downcase %></h3>
       <div class="message-list">
         <div
           data-controller="issue-subscription"

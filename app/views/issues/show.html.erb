@@ -10,7 +10,7 @@
     <%= render partial: "channels/index", locals: {channel: @channel} %>
     <!-- Messages column -->
   </div>
-  <div class="col-8">
+  <div class="col-8 chatroom-border">
     <div class="container">
       <div data-controller="issue-subscription" data-issue-subscription-issue-id-value="<%= @issue.id %>">
         <h3 class="mt-2">#<%= @issue.title %></h3>
