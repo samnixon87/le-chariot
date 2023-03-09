@@ -10,6 +10,13 @@ class PagesController < ApplicationController
     AiRequestJob.perform_later(ai_request_params, @api_key)
   end
 
+  def chat
+    @channels = Channel.all
+    @issue = Issue.find(1)
+    @message = Message.new
+    @issues = Issue.all
+  end
+
   private
 
   def ai_request_params
