@@ -2,7 +2,6 @@
   overflow-y: scroll;
   padding: 10px;
   background-color: #f9f9f9;
-  border-right: 1px solid #ddd;
 }
 
 .dark-mode {
@@ -15,8 +14,6 @@
 .issue-column {
   overflow-y: scroll;
   padding: 10px;
-  background-color: #f9f9f9;
-  border-right: 1px solid #ddd;
 }
 
 .dark-mode {
@@ -32,8 +29,6 @@
   font-size: 18px;
   font-weight: bold;
   padding: 10px;
-  background-color: #fff;
-  border-bottom: 1px solid #ddd;
   margin-bottom: 10px;
 }
 
@@ -46,8 +41,13 @@
 
 .issue {
   display: block;
-  padding: 5px;
-  border-bottom: 1px solid #ddd;
+  padding: 4px;
+  transition: 0.2s;
+  color: $purple;
+}
+
+.issue a {
+  text-decoration: none;
 }
 
 .dark-mode {
@@ -58,12 +58,13 @@
 }
 
 .issue.active {
-  background-color: #fff;
+  background-color: rgba(98, 98, 98, 0.1);
+  border-radius: 4px;
   font-weight: bold;
   color: #333;
 }
 
 .issue:hover {
-  background-color: #f5f5f5;
+  background-color: rgba(98, 98, 98, 0.1);
   cursor: pointer;
 }
