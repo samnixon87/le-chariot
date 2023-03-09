@@ -3,7 +3,9 @@
       <div class="banner-content">
         <h1>Ask technical questions, get helpful answers*</h1>
         <p>* even after the bootcamp</p>
-        <div class="btn btn-primary mt-4">Get started</div>
+        <div class="btn btn-primary mt-4">
+          <%= link_to 'Get started', channel_path(Channel.first), :class => "btn" %>
+        </div>
       </div>
   <div class="falling-shapes align-items-center flex-grow-1 mt-auto">
     <div class="fs-circle"><div></div></div>
