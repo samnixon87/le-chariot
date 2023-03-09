@@ -1,8 +1,9 @@
 class ChannelsController < ApplicationController
   def show
+    @channels = Channel.all
     @channel = Channel.find(params[:id])
-    @issues = Issue.where(channel_id: @channel.id)
-    @issue = Issue.new
+    @issues = @channel.issues
+    @issue = @issues.order(:created_at).first
     @message = Message.new
   end
 end
