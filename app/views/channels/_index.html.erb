@@ -1,55 +1,11 @@
-<div class="col-3 bg-light">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="channel-list">
-        <div class="channel active"
-              data-controller="channel-subscription"
-              data-channel-subscription-channel-id-value="<%= channel.id %>"
-            >
-          #general
-        </div>
-        <%# <% @channels.each do |channel| %>
-          <%# <%= channel.name.downcase %>
-          <%# <% end %>
-          <div class="channel">
-            #random
-          </div>
-          <div class="channel">
-            #design
-          </div>
-          <div class="channel">
-            #development
-          </div>
-          <div class="channel">
-            #marketing
-          </div>
-          <div class="channel">
-            #sales
-          </div>
-          <div class="channel">
-            #customer-support
-          </div>
-          <div class="channel">
-            #feedback
-          </div>
-          <div class="channel">
-            #announcements
-          </div>
-          <div class="channel">
-            #events
-          </div>
-          <div class="channel">
-            #news
-          </div>
-          <div class="channel">
-            #team
-          </div>
-          <div class="channel">
-            #off-topic
-          </div>
-        </div>
-        <div class="col-md-9">
-          <!-- Channel messages will be displayed here -->
-        </div>
-      </div>
+<div class="channel-list d-flex flex-column align-items-stretch">
+  <% @channels.each do |channel| %>
+    <div class="channel-img"
+          data-controller="channel-subscription"
+          data-channel-subscription-channel-id-value="<%= channel.id %>">
+      <%= link_to channel_path(channel.id) do %>
+        <%= image_tag "#{channel.name.downcase}.png", class: "channel-img" %>
+      <% end %>
     </div>
+  <% end %>
+</div>

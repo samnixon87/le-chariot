@@ -1,99 +1,24 @@
 <!-- Languages column -->
-<div class="">
-  <div class="row">
-    <div class="col-1 bg-dark p-3 border-right border-black">
-      <div class="d-flex justify-content-center">
-        <img src="<%= image_path('js_logo.png') %>" alt="logo" class="rounded border border-white" width="50px" height="50px">
+<div class="row"
+  data-controller="issues-messages"
+  >
+  <div class="col-1 bg-dark p-3 border-right border-black">
+    <div class="d-flex justify-content-center">
+       <%= render "channels/index" %>
+    </div>
+  </div>
+  <!-- Issues list column -->
+  <div class="col-2 bg-light issue-column">
+    <div class="container-fluid">
+      <div class="row">
+        <%= render "issues/index" %>
+          <!-- The active issue class will be assigned based on click - stimulus controller required, attach controller to list -->
       </div>
     </div>
-    <div class="container mt-5">
-  <h1>Pages#home</h1>
-  <p></p>
-  <%= render partial: "ai/request_form", locals: { uuid: @uuid } %>
-  <%= turbo_stream_from "channel_#{@uuid}" %>
-  <div id="ai_output">
-    <%= render partial: "ai/output", locals: { generated_idea: "" } %>
   </div>
-  <%# <div id="ai_output_image">
-    <%= render partial: "ai/output_image", locals: { generated_image: "" } %>
+  <!-- Issue messages column -->
+  <div class="col-8"
+        data-issues-messages-target="messages">
+    <%= render "issues/show" %>
   </div>
 </div>
-    <!-- Messages column -->
-    <div class="col-3 bg-light">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="channel-list">
-            <div class="channel active">
-              #general
-            </div>
-            <div class="channel">
-              #random
-            </div>
-            <div class="channel">
-              #design
-            </div>
-            <div class="channel">
-              #development
-            </div>
-            <div class="channel">
-              #marketing
-            </div>
-            <div class="channel">
-              #sales
-            </div>
-            <div class="channel">
-              #customer-support
-            </div>
-            <div class="channel">
-              #feedback
-            </div>
-            <div class="channel">
-              #announcements
-            </div>
-            <div class="channel">
-              #events
-            </div>
-            <div class="channel">
-              #news
-            </div>
-            <div class="channel">
-              #team
-            </div>
-            <div class="channel">
-              #off-topic
-            </div>
-          </div>
-          <div class="col-md-9">
-            <!-- Channel messages will be displayed here -->
-          </div>
-        </div>
-      </div>
-      <!-- Messages column -->
-    </div>
-    <div class="col-8">
-      <div class="container">
-        <div class="message-list">
-          <div class="message">
-            <div class="message-content">
-              <div class="message-header">
-                <div class="message-img">
-                  <img src="https://via.placeholder.com/50x50" alt="User Image">
-                </div>
-                <div class="message-name">Jane Smith</div>
-                <div class="message-time">3 hours ago</div>
-              </div>
-              <div class="message-body">
-                Sed ultricies lacus non leo ullamcorper, quis molestie lectus accumsan. Proin imperdiet felis sit amet
-                lacus iaculis, vitae pulvinar velit pharetra. Sed eget nunc ullamcorper, tempor metus in, fringilla
-                enim.
-              </div>
-              <div class="message-actions">
-                <button type="button" class="btn btn-secondary">Like</button>
-                <button type="button" class="btn btn-secondary">Reply</button>
-                <button type="button" class="btn btn-primary">Answer with AI</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
