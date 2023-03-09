@@ -1,6 +1,6 @@
 <div class="channel-list d-flex flex-column align-items-stretch">
   <% @channels.each do |channel| %>
-    <div class="channel-img"
+    <div class="channel-item-div"
           data-controller="channel-subscription"
           data-channel-subscription-channel-id-value="<%= channel.id %>">
       <%= link_to channel_path(channel.id) do %>

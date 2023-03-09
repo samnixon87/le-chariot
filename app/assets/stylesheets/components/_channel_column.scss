@@ -1,21 +1,31 @@
-.dark-mode {
-  .channel-list {
-    background-color: #3c4043;
-    border-right: solid 1px #5f6368;
-  }
+.lang-column {
+  max-width: 100px;
 }
+
 
 .channel-img {
-  min-width: 30px;
-  max-width: 50px;
-  margin: 4px;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  filter: grayscale(20%)
+}
+
+.channel-img:hover {
+  opacity: 70%;
+}
+
+.channel-item-div {
+  padding: 4px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin-bottom: 10px;
 }
 
 .dark-mode {
-  .channel-img {
+  .channel-item-div {
     background-color: #3c4043;
-    border-right: solid 1px #5f6368;
-    border: 1px solid #ddd;
+    border: 1px solid #5f6368;
   }
 }
 
