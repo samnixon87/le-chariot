@@ -7,7 +7,7 @@
       </div>
     </div>
     <!-- Issues column -->
-    <%= render partial: "channels/index", locals: {channel: @channel} %>
+    <%= render "channels/index", channels: @channels %>
     <!-- Messages column -->
   </div>
   <div class="col-8">
