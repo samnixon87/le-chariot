@@ -3,6 +3,8 @@ body {
 }
 
 .message-list {
+  overflow: scroll;
+  height:75vh;
   margin-top: 10px;
   margin-bottom: 10px;
 }
@@ -118,4 +120,9 @@ body {
 .message-input {
   position: sticky;
   top: 0;
+  margin-right: 8px;
+}
+
+.message-input-bar {
+  margin-right: 40px;
 }
