@@ -13,7 +13,7 @@
   <div class="col-8">
     <div class="container">
       <div data-controller="issue-subscription" data-issue-subscription-issue-id-value="<%= @issue.id %>">
-        <h3 class="mt-2">#<%= @issue.title.downcase %></h3>
+        <h3 class="mt-2">#<%= @issue.title %></h3>
         <div class="message-list">
           <div class="messages" data-issue-subscription-target="messages">
             <% @issue.messages.each do |message| %>

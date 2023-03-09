@@ -1,39 +1,27 @@
 <!-- Languages column -->
-<div class="">
-  <div class="row">
-    <div class="col-1 bg-dark p-3 border-right border-black">
-      <div class="d-flex justify-content-center">
-        <img src="<%= image_path('js_logo.png') %>" alt="logo" class="rounded border border-white" width="50px" height="50px">
-      </div>
+<div class="row"
+  data-controller="issues-messages"
+  >
+  <div class="col-1 bg-dark p-3 border-right border-black">
+    <div class="d-flex justify-content-center">
+       <%= render "channels/index" %>
     </div>
-    <!-- Issues column -->
-    <%= render partial: "channels/index", locals: {channel: @issue} %>
-    <!-- Messages column -->
   </div>
-  <div class="col-8">
-    <div class="container">
-      <div data-controller="issue-subscription" data-issue-subscription-issue-id-value="<%= @issue.id %>">
-        <h3 class="mt-2">#<%= @issue.title.downcase %></h3>
-        <div class="message-list">
-          <div class="messages" data-issue-subscription-target="messages">
-            <% @issue.messages.each do |message| %>
-              <%= render "messages/message", message: message %>
-            <% end %>
-          </div>
-        </div>
-        <div class="message-input">
-          <%= simple_form_for [@issue, @message], html: {class: "d-flex"} do |f| %>
-            <%= f.input :content,
-              label: false,
-              placeholder: "Message ##{@issue.title}",
-              wrapper_html: {class: "flex-grow-1"}
-            %>
-            <%= f.submit "Send", class: "btn btn-primary mb-3" %>
-          <% end %>
-        </div>
+  <!-- Issues list column -->
+  <div class="col-2 bg-light issue-column">
+    <div class="container-fluid">
+      <div class="row">
+        <%= render "issues/index" %>
+          <!-- The active issue class will be assigned based on click - stimulus controller required, attach controller to list -->
       </div>
     </div>
   </div>
+  <!-- Issue messages column -->
+  <div class="col-8"
+        data-issues-messages-target="messages">
+    <%= render "issues/show" %>
+  </div>
+</div>
   <div class="container">
     <div class="tab-status">
       <span class="tab active">1</span>
