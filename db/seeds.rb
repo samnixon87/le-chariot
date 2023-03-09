@@ -30,33 +30,32 @@ pp "Reincarnating users..."
   pp "Seeding users..."
 end
 
+# Create users for dev
+pp "Creating admin accounts"
+User.create(email: "sam@gmail.com", password: "123123")
+User.create(email: "admin@admin.com", password: "123123")
 
 # Create new channels
 pp "Creating channel seeds..."
 
-5.times do
-  Channel.create!(
-    name: "#{Faker::Hobby.activity}"
-  )
-  pp "Seeding channels..."
+["Ruby", "Rails", "HTML", "CSS", "JS", "Stimulus", "React"].each do |channel|
+  Channel.create!(name: channel)
 end
 
 # Create new issues
 pp "Creating issue seeds..."
 
-user_seed_id = User.first.id
-channel_seed_id = Channel.first.id
-
-5.times do
-  hobby = Faker::Hobby.activity
-  Issue.create!(
-    title: "Help with #{hobby}",
-    description: "I need someone to explain #{hobby} to me in detail.",
-    rating: rand(1..5),
-    channel_id: channel_seed_id,
-    user_id: user_seed_id
-  )
-  pp "Seeding issues..."
+Channel.all.each do |channel|
+  rand(0..4).times do
+    Issue.create!(
+      title: "Help with #{Faker::Hacker.ingverb} #{Faker::Hacker.adjective} #{Faker::Hacker.abbreviation}",
+      description: "#{Faker::Hacker.say_something_smart}",
+      rating: rand(1..5),
+      channel_id: channel.id,
+      user_id: User.order(Arel.sql('RANDOM()')).first.id
+    )
+    pp "Seeding issues..."
+  end
 end
 
 pp "Created #{User.count} users."
