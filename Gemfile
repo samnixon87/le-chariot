@@ -85,3 +85,7 @@ gem "ruby-openai"
 
 gem "faraday", "~> 2.7"
 gem "foreman", github: "ddollar/foreman"
+
+
+# Pin It Gem
+gem 'pin_it', '~> 0.0.7'

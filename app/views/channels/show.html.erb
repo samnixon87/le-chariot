@@ -3,7 +3,7 @@
   data-controller="issues-messages">
   <div class="col-1 bg-dark p-3 border-right border-black d-flex justify-content-center lang-column">
     <div class="d-flex justify-content-center">
-      <%= render "channels/index" %>
+      <%= render "channels/index", channels: @channels %>
     </div>
   </div>
   <!-- Issues list column -->
@@ -18,3 +18,4 @@
         data-issues-messages-target="messages">
     <%= render "issues/show" %>
   </div>
+</div>

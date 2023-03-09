@@ -26,6 +26,7 @@ class IssuesController < ApplicationController
 
   def show
     @channel = Channel.find(params[:channel_id])
+    @channels = Channel.all
     @issue = Issue.find(params[:id])
     @message = Message.new
     @channels = Channel.all

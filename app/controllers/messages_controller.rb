@@ -16,6 +16,9 @@ class MessagesController < ApplicationController
     end
   end
 
+  def pinned
+  end
+
   private
 
   def message_params
