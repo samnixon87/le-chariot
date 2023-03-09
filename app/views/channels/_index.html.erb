@@ -1,10 +1,11 @@
-<<<<<<< HEAD
-<div class="channel-list">
+<div class="channel-list d-flex flex-column align-items-stretch">
   <% @channels.each do |channel| %>
     <div class="channel-img"
           data-controller="channel-subscription"
           data-channel-subscription-channel-id-value="<%= channel.id %>">
-      <%= link_to channel.name, channel_path(channel.id) %>
+      <%= link_to channel_path(channel.id) do %>
+        <%= image_tag "#{channel.name.downcase}.png", class: "channel-img" %>
+      <% end %>
     </div>
   <% end %>
 </div>
