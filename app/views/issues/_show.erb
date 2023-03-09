@@ -1,12 +1,13 @@
-<div class="col-8">
+<div class="issue-show">
   <% if @issue.nil?  %>
   <div class="container">
     <h3>No issues here</h3>
   </div>
   <% else %>
     <div class="container">
-      <h3 class="mt-2">#<%= @issue.title.downcase %></h3>
-      <div class="message-list">
+      <h4 class="mt-3"># <%= @issue.title.downcase %></h4>
+      <p> <%= @issue.description %></p>
+      <div class="message-list mt-3">
         <div
           data-controller="issue-subscription"
           data-issue-subscription-issue-id-value="<%= @issue.id %>">
@@ -20,13 +21,13 @@
     </div>
   </div>
   <div class="message-input">
-    <%= simple_form_for [@issue, @message], html: {class: "d-flex"} do |f| %>
+    <%= simple_form_for [@issue, @message], html: { data: { action: "turbo:submit-end->issue-subscription#resetForm" }, class: "message-input-bar d-flex" } do |f| %>
       <%= f.input :content,
                   label: false,
                   placeholder: "Message ##{@issue.title}",
                   wrapper_html: {class: "flex-grow-1"}
                 %>
-      <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+      <%= f.submit "Reply", class: "btn btn-primary mb-3" %>
     <% end %>
   <% end %>
 </div>

@@ -6,15 +6,26 @@
   </div>
   <div role="tab-list">
     <div role="tabpanel" id="color" class="tabpanel">
-      <h1>Create an issue</h1>
-      <%= simple_form_for [@issue] do |f| %>
-        <%= f.input :title %>
-        <%# <%= f.input :rating, as: :radio_buttons, collection: [1, 2, 3, 4, 5] %>
-        <%= f.input :channel_id, as: :radio_buttons, collection: [1, 2, 3, 4, 5] %>
-        <%= f.input :description, :input_html => { :class => 'form-input' } %>
-        <%= f.input :code_block, :input_html => { :class => 'form-input' } %>
-        <%= f.submit class: 'btn btn-primary' %>
+      <h1>Create an issue <%= "for #{@channel.name}" unless @channel.nil? %></h1>
+      <% if @channel %>
+        <%= simple_form_for [@channel, @issue] do |f| %>
+          <%= f.input :title %>
+          <%# <%= f.input :rating, as: :radio_buttons, collection: [1, 2, 3, 4, 5] %>
+          <%= f.input :description, :input_html => { :class => 'form-input' } %>
+          <%= f.input :code_block, :input_html => { :class => 'form-input' } %>
+          <%= f.submit class: 'btn btn-primary' %>
+        <% end %>
+      <% else %>
+        <%= simple_form_for [@issue] do |f| %>
+          <%= f.input :channel_id, as: :radio_buttons, collection: [1, 2, 3, 4, 5] %>
+          <%= f.input :title %>
+          <%# <%= f.input :rating, as: :radio_buttons, collection: [1, 2, 3, 4, 5] %>
+          <%= f.input :description, :input_html => { :class => 'form-input' } %>
+          <%= f.input :code_block, :input_html => { :class => 'form-input' } %>
+          <%= f.submit class: 'btn btn-primary' %>
+        <% end %>
       <% end %>
+
     </div>
     <div role="tabpanel" id="hobbies" class="tabpanel hidden">
       <h3>What are your hobbies?</h3>

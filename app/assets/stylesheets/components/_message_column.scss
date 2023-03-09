@@ -3,10 +3,10 @@ body {
 }
 
 .message-list {
-  height: 600px;
-  overflow: auto;
+  overflow: scroll;
+  height:65vh;
   margin-top: 10px;
-  margin-bottom: 10px
+  margin-bottom: 16px;
 }
 
 .message {
@@ -40,6 +40,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: relative;
 }
 
 .message-content:hover {
@@ -75,7 +76,11 @@ body {
   line-height: 1.5;
 }
 
-.message-actions {
+.message-content .message-actions {
+  position: absolute;
+  right: 100px;
+  top: -24px;
+  width: 80px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -115,4 +120,15 @@ body {
   background-color: #f9f9f9;
   border-color: #bbb;
   color: #555;
+}
+
+.message-input {
+  position: sticky;
+  top: 0;
+  margin-right: 8px;
+  margin-top: 8px;
+}
+
+.message-input-bar {
+  margin-right: 16px;
 }
