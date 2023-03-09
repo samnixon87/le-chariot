@@ -10,18 +10,18 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto d-flex align-items-center">
         <% if user_signed_in? %>
+          <li class="nav-item active">
+            <%= link_to "Create an issue", new_issue_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Browse channels", channel_path(1), class: "nav-link" %>
+          </li>
           <i class="fa-solid fa-sun"></i>
           <label class="switch">
             <input type="checkbox" onchange="darkMode()">
             <span class="slider round"></span>
           </label>
           <i class="fa-solid fa-moon"></i>
-          <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
-          </li>
           <li class="nav-item dropdown">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">

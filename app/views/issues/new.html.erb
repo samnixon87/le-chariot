@@ -1,0 +1,246 @@
+<div class="container">
+  <div class="tab-status">
+    <span class="tab active">1</span>
+    <span class="tab">2</span>
+    <span class="tab">3</span>
+  </div>
+  <div role="tab-list">
+    <div role="tabpanel" id="color" class="tabpanel">
+      <h1>Create an issue</h1>
+      <%= simple_form_for [@issue] do |f| %>
+        <%= f.input :title %>
+        <%# <%= f.input :rating, as: :radio_buttons, collection: [1, 2, 3, 4, 5] %>
+        <%= f.input :channel_id, as: :radio_buttons, collection: [1, 2, 3, 4, 5] %>
+        <%= f.input :description, :input_html => { :class => 'form-input' } %>
+        <%= f.input :code_block, :input_html => { :class => 'form-input' } %>
+        <%= f.submit class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+    <div role="tabpanel" id="hobbies" class="tabpanel hidden">
+      <h3>What are your hobbies?</h3>
+      <textarea name="hobbies" class="form-input" placeholder="Mountain climbing, Guitar, Skateboarding"></textarea>
+    </div>
+    <div role="tabpanel" id="occupation" class="tabpanel hidden">
+      <h3>What is your occupation?</h3>
+      <textarea name="occupation" class="form-input" placeholder="Web Designer"></textarea>
+    </div>
+  </div>
+  <div class="pagination">
+    <a class="btn hidden" id="prev">Previous</a>
+    <a class="btn" id="next">Continue</a>
+    <button class="btn btn-submit hidden" id="submit">Submit</button>
+  </div>
+</div>
+<style>
+  :root {
+    --color-1: #6366f1;
+    --color-1-hover: #4338ca;
+    --color-2: #06b6d4;
+    --color-2-hover: #0891b2;
+    --text-color: #312e81;
+    --status-btn-bg: #f8fafc;
+    --status-btn-bg-hover: #f1f5f9;
+  }
+
+  body {
+    background: linear-gradient(to left, var(--color-1), var(--color-2));
+  }
+
+  .container {
+    margin: 3rem auto;
+    max-width: 500px;
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+  }
+
+  .form-input {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: .5rem;
+    box-shadow: inset 0px 1px 2px rgba(0, 0, 0, .1);
+    padding: 1rem;
+    box-sizing: border-box;
+    color: var(--text-color);
+    transition: ease-in-out .3s all;
+  }
+
+  .form-input::placeholder {
+    color: #cbd5e1;
+  }
+
+  .form-input:focus {
+    outline: none;
+    border-color: var(--color-1);
+  }
+
+  .btn:focus-within,
+  .form-input:focus-within {
+    box-shadow: #f8fafc 0px 0px 0px 2px, #c7d2fe 0px 0px 0px 6px, #0000 0px 1px 2px 0px;
+  }
+
+  textarea.form-input {
+    min-height: 150px;
+  }
+
+  .btn {
+    border: 0;
+    background: var(--color-1);
+    padding: 1rem;
+    border-radius: 25px;
+    color: white;
+    cursor: pointer;
+  }
+
+  .btn[disabled] {
+    opacity: .5;
+    pointer-events: none;
+  }
+
+  .btn:hover {
+    background: var(--color-1-hover);
+    transition: ease-in-out .3s all;
+  }
+
+  .btn-submit {
+    background-color: var(--color-2);
+  }
+
+  .btn-submit:hover {
+    background-color: var(--color-2-hover);
+  }
+
+  .pagination {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .pagination .btn {
+    width: 100%;
+    text-align: center;
+    margin: 0 6px;
+  }
+
+  .tab-status {
+    display: flex;
+    align-items: center;
+  }
+
+  .tab-status span {
+    appearance: none;
+    background: var(--status-btn-bg);
+    border: none;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    margin-right: .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tab-status span.active {
+    background-color: var(--color-2);
+    color: white;
+  }
+
+  .hidden {
+    display: none;
+  }
+</style>
+<script>
+  const previousButton = document.querySelector('#prev')
+  const nextButton = document.querySelector('#next')
+  const submitButton = document.querySelector('#submit')
+  const tabTargets = document.querySelectorAll('.tab')
+  const tabPanels = document.querySelectorAll('.tabpanel')
+  const isEmpty = (str) => !str.trim().length
+  let currentStep = 0
+
+  // Validate first input on load
+  validateEntry()
+
+  // Next: Change UI relative to current step and account for button permissions
+  nextButton.addEventListener('click', (event) => {
+  event.preventDefault()
+
+  // Hide current tab
+  tabPanels[currentStep].classList.add('hidden')
+  tabTargets[currentStep].classList.remove('active')
+
+  // Show next tab
+  tabPanels[currentStep + 1].classList.remove('hidden')
+  tabTargets[currentStep + 1].classList.add('active')
+  currentStep += 1
+
+  validateEntry()
+  updateStatusDisplay()
+  })
+
+  // Previous: Change UI relative to current step and account for button permissions
+  previousButton.addEventListener('click', (event) => {
+  event.preventDefault()
+
+  // Hide current tab
+  tabPanels[currentStep].classList.add('hidden')
+  tabTargets[currentStep].classList.remove('active')
+
+  // Show previous tab
+  tabPanels[currentStep - 1].classList.remove('hidden')
+  tabTargets[currentStep - 1].classList.add('active')
+  currentStep -= 1
+
+  nextButton.removeAttribute('disabled')
+  updateStatusDisplay()
+  })
+
+
+  function updateStatusDisplay() {
+  // If on the last step, hide the next button and show submit
+  if (currentStep === tabTargets.length - 1) {
+    nextButton.classList.add('hidden')
+    previousButton.classList.remove('hidden')
+    submitButton.classList.remove('hidden')
+    validateEntry()
+
+    // If it's the first step hide the previous button
+  } else if (currentStep == 0) {
+    nextButton.classList.remove('hidden')
+    previousButton.classList.add('hidden')
+    submitButton.classList.add('hidden')
+    // In all other instances display both buttons
+  } else {
+    nextButton.classList.remove('hidden')
+    previousButton.classList.remove('hidden')
+    submitButton.classList.add('hidden')
+  }
+  }
+
+  function validateEntry() {
+  let input = tabPanels[currentStep].querySelector('.form-input')
+
+  // Start but disabling continue button
+  nextButton.setAttribute('disabled', true)
+  submitButton.setAttribute('disabled', true)
+
+  // Validate on initial function fire
+  setButtonPermissions(input)
+
+  // Validate on input
+  input.addEventListener('input', () => setButtonPermissions(input))
+  // Validate if bluring from input
+  input.addEventListener('blur', () => setButtonPermissions(input))
+  }
+
+  function setButtonPermissions(input) {
+  if (isEmpty(input.value)) {
+    nextButton.setAttribute('disabled', true)
+    submitButton.setAttribute('disabled', true)
+  } else {
+    nextButton.removeAttribute('disabled')
+    submitButton.removeAttribute('disabled')
+  }
+  }
+</script>
