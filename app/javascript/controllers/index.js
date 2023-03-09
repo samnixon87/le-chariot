@@ -12,3 +12,6 @@ application.register("issue-subscription", IssueSubscriptionController)
 
 import IssuesMessagesController from "./issues_messages_controller"
 application.register("issues-messages", IssuesMessagesController)
+
+import MarkCompleteController from "./mark_complete_controller"
+application.register("mark-complete", MarkCompleteController)

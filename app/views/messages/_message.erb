@@ -17,10 +17,12 @@
         <p><%= message.content %></p>
       </div>
     </div>
-    <div class="message-actions">
+    <div class="message-actions" id="pinColor" data-controller="mark-complete">
       <button type="button" class="btn btn-secondary">Like</button>
       <button type="button" class="btn btn-secondary">Reply</button>
       <button type="button" class="btn btn-primary">Answer with AI</button>
+      <button type="button" class="btn btn-primary" id="pinned">Mark answer as correct</button>
+        <%# pin message %>
     </div>
   </div>
 </div>
