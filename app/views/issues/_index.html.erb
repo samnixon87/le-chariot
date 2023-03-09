@@ -1,9 +1,13 @@
-<div class="issue-list">
-  <% @issues.each do |issue| %>
-    <div class="issue"
-          data-controller="issue-subscription"
-          data-channel-subscription-channel-id-value="<%= issue.id %>">
-      🎠 <%= link_to issue.title, channel_issue_path(issue.channel, issue), data: {action: "click->issues-messages#render", issues_messages_target: "issueLink"} %>
-    </div>
-  <% end %>
+<div class="w-100 position-relative">
+  <h3>Open questions</h3>
+  <div class="issue-list">
+    <% @issues.each do |issue| %>
+      <div class="issue"
+            data-controller="issue-subscription"
+            data-channel-subscription-channel-id-value="<%= issue.id %>">
+        🎠 <%= link_to issue.title, channel_issue_path(issue.channel, issue), data: {action: "click->issues-messages#render", issues_messages_target: "issueLink"} %>
+      </div>
+    <% end %>
+  </div>
+  <%= link_to "Create new issue", new_channel_issue_path(@channel), style: "display: block; position: absolute; text-align: center; bottom:0; left: 50%; transform: translateX(-50%);" %>
 </div>
