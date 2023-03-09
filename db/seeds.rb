@@ -30,33 +30,60 @@ pp "Reincarnating users..."
   pp "Seeding users..."
 end
 
+# Create users for dev
+pp "Creating admin accounts"
+User.create(email: "sam@gmail.com", password: "123123")
+User.create(email: "admin@admin.com", password: "123123")
 
 # Create new channels
 pp "Creating channel seeds..."
 
-5.times do
-  Channel.create!(
-    name: "#{Faker::Hobby.activity}"
-  )
-  pp "Seeding channels..."
+["Ruby", "Rails", "HTML", "CSS", "JS", "Stimulus", "React"].each do |channel|
+  Channel.create!(name: channel)
 end
 
 # Create new issues
 pp "Creating issue seeds..."
 
-user_seed_id = User.first.id
-channel_seed_id = Channel.first.id
+pp "Starting with some Ruby ones."
 
-5.times do
-  hobby = Faker::Hobby.activity
-  Issue.create!(
-    title: "Help with #{hobby}",
-    description: "I need someone to explain #{hobby} to me in detail.",
-    rating: rand(1..5),
-    channel_id: channel_seed_id,
-    user_id: user_seed_id
-  )
-  pp "Seeding issues..."
+Issue.create!(
+  title: "Random record in ActiveRecord",
+  description: "I'm in need of getting a random record from a table via ActiveRecord. I've followed the example from Jamis Buck from 2006. However, I've also come across another way via a Google search (can't attribute with a link due to new user restrictions)...",
+  rating: 4,
+  channel_id: 1,
+  user_id: User.order(Arel.sql('RANDOM()')).first.id
+)
+
+Issue.create!(
+  title: "How to trace method call in class instance in ruby",
+  description: "How can i get traceback of method calls i did cat.sound, cat.food, cat.inspect so then i can prove that ruby found the method in correct class? (sound at Cat, food at Pet, and inspect at Object)",
+  rating: 5,
+  channel_id: 1,
+  user_id: User.order(Arel.sql('RANDOM()')).first.id
+)
+
+Issue.create!(
+  title: "How do I pick randomly from an array?",
+  description: "I want to know if there is a much cleaner way of doing this. Basically, I want to pick a random element from an array of variable length. Is there something that is more readable / simpler to replace the second line? Or is that the best way to do it. I suppose you could do myArray.shuffle.first, but I only saw #shuffle a few minutes ago on SO, I haven't actually used it yet..",
+  rating: 4,
+  channel_id: 1,
+  user_id: User.order(Arel.sql('RANDOM()')).first.id
+)
+
+pp "Now adding the rest..."
+
+Channel.all.each do |channel|
+  rand(0..3).times do
+    Issue.create!(
+      title: "#{["Help with", "Can't seem to", "What is", "I've been struggling with", "Help...", "WTF is"].sample} #{Faker::Hacker.ingverb} #{Faker::Hacker.adjective} #{Faker::Hacker.abbreviation}",
+      description: "#{Faker::Hacker.say_something_smart}",
+      rating: rand(1..5),
+      channel_id: channel.id,
+      user_id: User.order(Arel.sql('RANDOM()')).first.id
+    )
+    pp "Seeding issues..."
+  end
 end
 
 pp "Created #{User.count} users."
