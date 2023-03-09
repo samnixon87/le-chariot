@@ -2,25 +2,27 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="issues"
 export default class extends Controller {
-  static targets = ["messages"]
+  static targets = ["messages", "issueLink"]
 
   connect() {
-    console.log(this.element)
     // console.log(this.element.href.value)
   }
 
   render(event) {
     event.preventDefault()
-    console.log(event.target.href)
     // console.log(this.myForm)
 
-    event.target.classList.add("active")
+    this.issueLinkTargets.forEach((issueLink) => {
+      issueLink.parentElement.classList.remove("active")
+    })
+
+    event.target.parentElement.classList.add("active")
 
     const url = `${event.target.href}`
-    fetch(url)
-      .then(response => response.text())
+    fetch(url, {headers: {"Accept": "application/json"}})
+      .then(response => response.json())
       .then((data) => {
-        console.log(data)
+        this.messagesTarget.innerHTML = ("afterbegin", data.content)
     })
   }
 }

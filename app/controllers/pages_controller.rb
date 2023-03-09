@@ -12,6 +12,9 @@ class PagesController < ApplicationController
 
   def chat
     @channels = Channel.all
+    @issue = Issue.find(1)
+    @message = Message.new
+    @issues = Issue.all
   end
 
   private

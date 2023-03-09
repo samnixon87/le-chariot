@@ -1,0 +1,26 @@
+<div class="col-8">
+  <div class="container">
+    <h3 class="mt-2">#<%= @issue.title.downcase %></h3>
+    <div class="message-list">
+      <div
+        data-controller="issue-subscription"
+        data-issue-subscription-issue-id-value="<%= @issue.id %>">
+        <div class="messages" data-issue-subscription-target="messages">
+          <% @issue.messages.each do |message| %>
+            <%= render "messages/message", message: message %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="message-input">
+  <%= simple_form_for [@issue, @message], html: {class: "d-flex"} do |f| %>
+    <%= f.input :content,
+                label: false,
+                placeholder: "Message ##{@issue.title}",
+                wrapper_html: {class: "flex-grow-1"}
+              %>
+    <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+  <% end %>
+</div>

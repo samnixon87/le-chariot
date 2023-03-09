@@ -7,20 +7,21 @@
       </div>
     </div>
     <!-- Issues column -->
-    <%= render partial: "channels/index", locals: {channel: @issue} %>
     <!-- Messages column -->
   </div>
   <div class="col-8">
     <div class="container">
-      <div data-controller="issue-subscription" data-issue-subscription-issue-id-value="<%= @issue.id %>">
-        <h3 class="mt-2">#<%= @issue.title.downcase %></h3>
+    <%= @issues.each do |issue| %>
+      <div data-controller="issue-subscription" data-issue-subscription-issue-id-value="<%= issue.id %>">
+        <h3 class="mt-2">#<%= issue.title.downcase %></h3>
         <div class="message-list">
           <div class="messages" data-issue-subscription-target="messages">
-            <% @issue.messages.each do |message| %>
+            <% issue.messages.each do |message| %>
               <%= render "messages/message", message: message %>
             <% end %>
           </div>
         </div>
+        <% end %>
         <div class="message-input">
           <%= simple_form_for [@issue, @message], html: {class: "d-flex"} do |f| %>
             <%= f.input :content,
