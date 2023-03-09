@@ -18,6 +18,13 @@
     <%= render partial: "ai/output_image", locals: { generated_image: "" } %>
   </div>
 </div>
+
+    <%# Pin something layout %>
+    <%= javascript_tag pin_it_js %>
+    <%= pin_it_button media: image_url(@photo.url),
+                  description: @photo.description,
+                  url: photo_url(@photo) %>
+
     <!-- Messages column -->
     <div class="col-3 bg-light">
       <div class="container-fluid">
