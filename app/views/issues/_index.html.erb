@@ -3,8 +3,7 @@
     <div class="issue"
           data-controller="issue-subscription"
           data-channel-subscription-channel-id-value="<%= issue.id %>">
-      <%= link_to issue.title, channel_issue_path(issue.channel, issue), data: {action: "click->issues-messages#render", issues_messages_target: "issueLink"} %>
-      <%# Stimulus action here %>
+      🎠 <%= link_to issue.title, channel_issue_path(issue.channel, issue), data: {action: "click->issues-messages#render", issues_messages_target: "issueLink"} %>
     </div>
   <% end %>
 </div>
