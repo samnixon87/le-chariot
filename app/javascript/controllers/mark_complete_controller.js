@@ -4,8 +4,8 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
 
   markComplete(e) {
-    this.element.classList.add("green-background")
-    document.querySelector('#pinned').display = "none";
-    document.querySelector('#pinned').innerHTML = "Undo"
+    this.element.classList.toggle("green-background")
+    // document.querySelector('#pinned').display = "none";
+    // document.querySelector('#pinned').innerHTML = "Undo";
   }
 }
