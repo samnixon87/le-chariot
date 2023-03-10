@@ -85,8 +85,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_10_123950) do
 
   add_foreign_key "issues", "channels"
   add_foreign_key "issues", "users"
-  add_foreign_key "likes", "messages"
-  add_foreign_key "likes", "users"
   add_foreign_key "messages", "issues"
   add_foreign_key "messages", "users"
   add_foreign_key "suggested_answers", "issues"
