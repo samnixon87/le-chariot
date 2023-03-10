@@ -25,6 +25,10 @@
         <%= f.input :password_confirmation,
                     required: true,
                     input_html: { autocomplete: "new-password" } %>
+        <%= f.input :batch,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "batch number" }%>
       </div>
 
       <div class="form-actions">
