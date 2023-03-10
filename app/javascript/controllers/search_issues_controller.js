@@ -19,7 +19,7 @@ export default class extends Controller {
           this.listTarget.outerHTML = data
         })
     }
-    else
-    this.listTarget.outerHTML = data
+    // else
+    // this.listTarget.outerHTML = data
   }
 }
