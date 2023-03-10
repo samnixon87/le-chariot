@@ -18,12 +18,27 @@
       </div>
     </div>
     <div class="message-helpful">
-      <button type="button" class="btn btn-primary" id="pinned" data-action="click->mark-complete#markComplete">👍</button>
+      <button type="button" onclick="hello('likes-<%= message.id %>')" class="btn btn-primary" id="pinned" data-action="click->mark-complete#markComplete">👍</button>
+
+      <%# Clicking like %>
+       <script type="text/javascript">
+
+    var clicks = 0;
+    function hello(likesId) {
+        var clicksElement = document.getElementById(likesId);
+        var clicks = parseInt(clicksElement.innerHTML);
+        clicksElement.innerHTML = clicks + 1;
+        console.log(clicks + 1);
+    };
+    </script>
+    <p><strong>+ <strong><a id="likes-<%= message.id %>">0</a></p>
+
     </div>
     <div class="message-actions" id="pinColor">
       <button type="button" class="btn btn-secondary">Like</button>
       <button type="button" class="btn btn-secondary">Reply</button>
       <button type="button" class="btn btn-primary">Hint</button>
+
     </div>
   </div>
 </div>
