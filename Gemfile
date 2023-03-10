@@ -30,7 +30,7 @@ gem "jbuilder"
 gem "faker"
 
 # Use Redis adapter to run Action Cable in production
-# gem "redis", "~> 4.0"
+gem "redis", "~> 4.0"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -83,4 +83,7 @@ gem "ruby-openai"
 
 gem "faraday", "~> 2.7"
 gem "foreman", github: "ddollar/foreman"
+# Search Gem
 gem "pg_search"
+# Pin It Gem
+gem 'pin_it', '~> 0.0.7'

@@ -1,6 +1,14 @@
 import { Controller } from "@hotwired/stimulus"
 import { createConsumer } from "@rails/actioncable"
 
+// const Pinned = document.getElementById('Pinned');
+// const pinColor = document.getElementById('pinColor');
+// // Add an event listener to the button element
+// Pinned.addEventListener('click', function() {
+//   pinColor.style.backgroundColor = 'blue';
+// });
+
+
 // Connects to data-controller="issue-subscription"
 export default class extends Controller {
   static values = { issueId: Number }

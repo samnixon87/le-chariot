@@ -3,8 +3,10 @@ body {
 }
 
 .message-list {
+  overflow: scroll;
+  height:50vh;
   margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 16px;
 }
 
 .message {
@@ -31,17 +33,18 @@ body {
 .message-content {
   background-color: white;
   padding: 10px;
-  border-radius: 10px;
-  border: solid 1px black;
-  // box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 1px;
+  border: solid 1px $green;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: relative;
 }
 
 .message-content:hover {
-  background-color: #efefef;
+  background-color: $light-gray;
 }
 
 .dark-mode {
@@ -73,7 +76,11 @@ body {
   line-height: 1.5;
 }
 
-.message-actions {
+.message-content .message-actions {
+  position: absolute;
+  right: 60px;
+  top: -24px;
+  width: 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -82,24 +89,23 @@ body {
 
 .message-actions .btn {
   font-size: 12px;
-  border-radius: 20px;
+  border-radius: 1px;
   padding-right: 1rem;
   padding-left: 1rem;
-  border: 0.0625rem solid #000;
-  background-color: transparent;
   color: #000;
   line-height: 1;
 }
 
 .message-actions .btn-primary {
-  background-color: black;
-  border-color: black;
-  color: white;
+  background-color: white;
+  border-color: $purple;
+  color: $purple;
+  margin: 2px;
 }
 
 .message-actions .btn-primary:hover {
-  background-color: #0069d9;
-  border-color: #0062cc;
+  border-color: $purple;
+  background-color: $purple;
   color: white;
 }
 
@@ -118,4 +124,68 @@ body {
 .message-input {
   position: sticky;
   top: 0;
+  margin-right: 8px;
+  margin-top: 8px;
+}
+
+.message-input-bar {
+  margin-right: 16px;
+}
+
+.message-helpful {
+  position: absolute;
+  right: -12x;
+  bottom: -12px;
+  margin-top: 10px;
+}
+
+.message-helpful .btn {
+  font-size: 12px;
+  border-radius: 20px;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  background-color: transparent;
+  color: #000;
+  line-height: 1;
+}
+
+.message-helpful .btn-primary {
+  background-color: $green;
+  color: white;
+}
+
+.message-helpful .btn-primary:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+  color: white;
+}
+
+.message-helpful .btn-secondary {
+  background-color: white;
+  border-color: #ccc;
+  color: #555;
+}
+
+.message-helpful .btn-secondary:hover {
+  background-color: #f9f9f9;
+  border-color: #bbb;
+  color: #555;
+}
+
+.message-top {
+  border-bottom: 1px solid $orange;
+}
+
+.message-top p {
+  margin-bottom: 12px;
+}
+
+.chat-message-column {
+  background-color: $white;
+}
+
+.dark-mode {
+  .chat-message-column {
+    background-color: $gray;
+  }
 }

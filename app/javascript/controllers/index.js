@@ -15,3 +15,9 @@ application.register("issues-messages", IssuesMessagesController)
 
 import SearchIssuesController from "./search_issues_controller"
 application.register("search-issues", SearchIssuesController)
+
+import MarkCompleteController from "./mark_complete_controller"
+application.register("mark-complete", MarkCompleteController)
+
+import { Confetti } from "stimulus-confetti"
+application.register('confetti', Confetti)

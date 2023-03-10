@@ -1,5 +1,9 @@
 <div class="issue-list">
   <div data-controller="search-issues">
+    <div class="issue-top mx-3 w-100 position-relative">
+      <h4>Open questions</h4>
+      <%= link_to "Create new issue", new_channel_issue_path(@channel), class: "create-new" %>
+    </div>
     <%= form_with url: channel_issues_path(@channel), method: :get, html: {class:"d-flex search-bar", data: {search_issues_target: "form"}} do |form| %>
       <%= form.text_field :query,
         placeholder: "Filter issues",

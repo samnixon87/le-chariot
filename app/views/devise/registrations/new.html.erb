@@ -9,7 +9,19 @@
         <%= f.input :email,
                     required: true,
                     autofocus: true,
-                    input_html: { autocomplete: "email" }%>
+                    input_html: { autocomplete: "email" } %>
+        <%= f.input :first_name,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "first name" } %>
+        <%= f.input :last_name,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "last name" } %>
+        <%= f.input :nickname,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "nickname" } %>
         <%= f.input :password,
                     required: true,
                     hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
@@ -17,6 +29,10 @@
         <%= f.input :password_confirmation,
                     required: true,
                     input_html: { autocomplete: "new-password" } %>
+        <%= f.input :batch,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "batch number" } %>
       </div>
 
       <div class="form-actions">
