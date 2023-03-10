@@ -73,6 +73,10 @@
   cursor: pointer;
 }
 
+.search-bar {
+  margin-bottom: 20px;
+}
+
 .create-new {
   color: $blue;
   text-decoration: none;
@@ -87,7 +91,6 @@
     background-color: #3c4043;
   }
 }
-
 
 .issue-top h3 {
   padding-bottom: 2px;
