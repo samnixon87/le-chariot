@@ -24,7 +24,7 @@ pp "Reincarnating users..."
     password: "123456",
     first_name: Faker::Name.first_name,
     last_name: Faker::Games::ElderScrolls.last_name,
-    nickname: Faker::Internet.usename,
+    nickname: Faker::Internet.username,
     batch: 1122,
     role: true
   )
