@@ -12,3 +12,6 @@ application.register("issue-subscription", IssueSubscriptionController)
 
 import IssuesMessagesController from "./issues_messages_controller"
 application.register("issues-messages", IssuesMessagesController)
+
+import SearchIssuesController from "./search_issues_controller"
+application.register("search-issues", SearchIssuesController)

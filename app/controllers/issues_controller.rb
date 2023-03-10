@@ -1,4 +1,18 @@
 class IssuesController < ApplicationController
+  def index
+    @channel = Channel.find(params[:channel_id])
+    @issues = @channel.issues
+    respond_to do |format|
+      if params[:query].present?
+        @issues = @issues.search_by_title_and_description(params[:query])
+        format.html
+        format.text { render partial: "issues/list", locals: { issues: @issues }, formats: [:html] }
+      else
+        format.html
+      end
+    end
+  end
+
   def new
     @user = current_user
     @issue = Issue.new
@@ -22,11 +36,6 @@ class IssuesController < ApplicationController
     @channel = Channel.find(params[:channel_id])
     @issue = Issue.find(params[:id])
     @message = Message.new
-    @channels = Issue.all
-  end
-
-  def index
-    @channel = Channel.find(params[:channel_id])
     @issues = Issue.all
   end
 
