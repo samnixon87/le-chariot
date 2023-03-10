@@ -12,6 +12,7 @@
 
 .channel-img:hover {
   opacity: 70%;
+  cursor: pointer;
 }
 
 .channel-item-div {
@@ -20,6 +21,10 @@
   border: 1px solid #ddd;
   border-radius: 10px;
   margin-bottom: 10px;
+}
+
+.channel-item-div:hover {
+  translate: (4px);
 }
 
 .dark-mode {
@@ -31,9 +36,4 @@
 
 .channel-img.active {
   border: 1px solid $orange;
-}
-
-.channel-img:hover {
-  transform: translate(0, -1px);
-  cursor: pointer;
 }
