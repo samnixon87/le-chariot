@@ -18,17 +18,24 @@
       </div>
     </div>
     <div class="message-helpful">
-      <button type="button" onclick="hello('likes-<%= message.id %>')" class="btn btn-primary" id="pinned" data-action="click->mark-complete#markComplete">👍</button>
+      <button type="button" onclick="hello('likes-<%= message.id %>')" class="btn btn-primary" id="pinned" data-action="click->mark-complete#markComplete"><a
+        data-controller="confetti"
+        data-confetti-follow-value="false"
+        data-action="click->confetti#spray"
+        data-confetti-animation-value="basic">👍</a></button>
 
       <%# Clicking like %>
        <script type="text/javascript">
 
     var clicks = 0;
-    function hello(likesId) {
-        var clicksElement = document.getElementById(likesId);
-        var clicks = parseInt(clicksElement.innerHTML);
-        clicksElement.innerHTML = clicks + 1;
-        console.log(clicks + 1);
+    function hello(likesId, messageId) {
+      var clicksElement = document.getElementById(likesId);
+      var clicks = parseInt(clicksElement.innerHTML);
+      clicksElement.innerHTML = clicks + 1;
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "/like/" + messageId);
+      xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+      xhr.send(JSON.stringify({ message_id: messageId }));
     };
     </script>
     <p><strong>+ <strong><a id="likes-<%= message.id %>">0</a></p>
