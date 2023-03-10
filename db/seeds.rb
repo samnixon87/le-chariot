@@ -13,6 +13,8 @@ pp "Now destroying issue seeds. Burning them with fire..."
 Issue.destroy_all
 pp "Now destroying channel seeds. Burning them with fire..."
 Channel.destroy_all
+pp "Now destroying message seeds. Burning them with fire..."
+Message.destroy_all
 pp "Done."
 
 # Create new users
