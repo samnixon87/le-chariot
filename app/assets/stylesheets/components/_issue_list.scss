@@ -3,12 +3,12 @@
   height: 80vh;
   padding: 10px;
   background-color: #f9f9f9;
+  overflow-x: hidden;
 }
 
 .dark-mode {
   .issue-list {
     background-color: #3c4043;
-    border-right: solid 1px #5f6368;
   }
 }
 
@@ -19,7 +19,6 @@
 .dark-mode {
   .issue-column {
     background-color: #3c4043;
-    border-right: solid 1px #5f6368;
   }
 }
 
@@ -30,6 +29,12 @@
   font-weight: bold;
   padding: 10px;
   margin-bottom: 10px;
+}
+
+.dark-mode {
+  .issue-column {
+    background-color: #3c4043;
+  }
 }
 
 .issue-header img {
@@ -53,7 +58,6 @@
 .dark-mode {
   .issue {
     background-color: #3c4043;
-    border-right: solid 1px #5f6368;
   }
 }
 
@@ -77,6 +81,12 @@
 .issue-top {
   padding-bottom: 4px;
   border-bottom: 1px solid $orange;
+}
+
+.dark-mode {
+  .issue-top {
+    background-color: #3c4043;
+  }
 }
 
 
