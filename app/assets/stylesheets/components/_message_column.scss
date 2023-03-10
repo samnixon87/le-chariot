@@ -132,3 +132,53 @@ body {
 .message-input-bar {
   margin-right: 16px;
 }
+
+.message-helpful {
+  position: absolute;
+  right: -12x;
+  bottom: -12px;
+  margin-top: 10px;
+}
+
+.message-helpful .btn {
+  font-size: 12px;
+  border-radius: 20px;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  border: 0.0625rem solid #000;
+  background-color: transparent;
+  color: #000;
+  line-height: 1;
+}
+
+.message-helpful .btn-primary {
+  background-color: black;
+  border-color: black;
+  color: white;
+}
+
+.message-helpful .btn-primary:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+  color: white;
+}
+
+.message-helpful .btn-secondary {
+  background-color: white;
+  border-color: #ccc;
+  color: #555;
+}
+
+.message-helpful .btn-secondary:hover {
+  background-color: #f9f9f9;
+  border-color: #bbb;
+  color: #555;
+}
+
+.message-top {
+  border-bottom: 1px solid $orange;
+}
+
+.message-top p {
+  margin-bottom: 12px;
+}
