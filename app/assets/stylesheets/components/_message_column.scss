@@ -4,7 +4,7 @@ body {
 
 .message-list {
   overflow: scroll;
-  height:65vh;
+  height:50vh;
   margin-top: 10px;
   margin-bottom: 16px;
 }
@@ -33,9 +33,9 @@ body {
 .message-content {
   background-color: white;
   padding: 10px;
-  border-radius: 10px;
-  border: solid 1px black;
-  // box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 1px;
+  border: solid 1px $green;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -44,7 +44,7 @@ body {
 }
 
 .message-content:hover {
-  background-color: #efefef;
+  background-color: $light-gray;
 }
 
 .dark-mode {
@@ -78,9 +78,9 @@ body {
 
 .message-content .message-actions {
   position: absolute;
-  right: 100px;
+  right: 60px;
   top: -24px;
-  width: 80px;
+  width: 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -89,24 +89,23 @@ body {
 
 .message-actions .btn {
   font-size: 12px;
-  border-radius: 20px;
+  border-radius: 1px;
   padding-right: 1rem;
   padding-left: 1rem;
-  border: 0.0625rem solid #000;
-  background-color: transparent;
   color: #000;
   line-height: 1;
 }
 
 .message-actions .btn-primary {
-  background-color: black;
-  border-color: black;
-  color: white;
+  background-color: white;
+  border-color: $purple;
+  color: $purple;
+  margin: 2px;
 }
 
 .message-actions .btn-primary:hover {
-  background-color: #0069d9;
-  border-color: #0062cc;
+  border-color: $purple;
+  background-color: $purple;
   color: white;
 }
 
@@ -145,15 +144,13 @@ body {
   border-radius: 20px;
   padding-right: 1rem;
   padding-left: 1rem;
-  border: 0.0625rem solid #000;
   background-color: transparent;
   color: #000;
   line-height: 1;
 }
 
 .message-helpful .btn-primary {
-  background-color: black;
-  border-color: black;
+  background-color: $green;
   color: white;
 }
 
@@ -181,4 +178,14 @@ body {
 
 .message-top p {
   margin-bottom: 12px;
+}
+
+.chat-message-column {
+  background-color: $white;
+}
+
+.dark-mode {
+  .chat-message-column {
+    background-color: $gray;
+  }
 }

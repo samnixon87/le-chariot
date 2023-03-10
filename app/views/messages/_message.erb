@@ -18,6 +18,10 @@
       </div>
     </div>
     <div class="message-helpful">
+      <p><strong>+ <strong><a id="likes-<%= message.id %>">0</a></p>
+    </div>
+    <div class="message-actions" id="pinColor">
+      <%# <button type="button" class="btn btn-secondary">Reply</button> %>
       <button type="button" onclick="hello('likes-<%= message.id %>')" class="btn btn-primary" id="pinned" data-action="click->mark-complete#markComplete"><a
         data-controller="confetti"
         data-confetti-follow-value="false"
@@ -37,14 +41,7 @@
       xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
       xhr.send(JSON.stringify({ message_id: messageId }));
     };
-    </script>
-    <p><strong>+ <strong><a id="likes-<%= message.id %>">0</a></p>
-
-    </div>
-    <div class="message-actions" id="pinColor">
-      <button type="button" class="btn btn-secondary">Like</button>
-      <button type="button" class="btn btn-secondary">Reply</button>
-      <button type="button" class="btn btn-primary">Hint</button>
+    </script>      <button type="button" class="btn btn-primary">Hint</button>
 
     </div>
   </div>
