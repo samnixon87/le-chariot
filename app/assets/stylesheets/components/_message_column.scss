@@ -179,3 +179,13 @@ body {
 .message-top p {
   margin-bottom: 12px;
 }
+
+.chat-message-column {
+  background-color: $white;
+}
+
+.dark-mode {
+  .chat-message-column {
+    background-color: $gray;
+  }
+}
