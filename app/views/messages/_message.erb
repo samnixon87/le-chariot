@@ -17,35 +17,40 @@
         <p><%= message.content %></p>
       </div>
     </div>
-    <div class="message-helpful">
-      <button type="button" onclick="hello('likes-<%= message.id %>')" class="btn btn-primary" id="pinned" data-action="click->mark-complete#markComplete"><a
-        data-controller="confetti"
-        data-confetti-follow-value="false"
-        data-action="click->confetti#spray"
-        data-confetti-animation-value="basic">👍</a></button>
 
-      <%# Clicking like %>
-       <script type="text/javascript">
+      <div class="message-helpful">
+      <div class="message-helpful-child">
+        <button type="button" onclick="hello('likes-<%= message.id %>')" class="btn btn-primary" id="pinned" data-action="click->mark-complete#markComplete"><a
+          data-controller="confetti"
+          data-confetti-follow-value="false"
+          data-action="click->confetti#spray"
+          data-confetti-animation-value="basic">👍</a></button></div>
+        <%# Clicking like %>
+        <script type="text/javascript">
 
-    var clicks = 0;
-    function hello(likesId, messageId) {
-      var clicksElement = document.getElementById(likesId);
-      var clicks = parseInt(clicksElement.innerHTML);
-      clicksElement.innerHTML = clicks + 1;
-      var xhr = new XMLHttpRequest();
-      xhr.open("POST", "/like/" + messageId);
-      xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-      xhr.send(JSON.stringify({ message_id: messageId }));
-    };
-    </script>
-    <p><strong>+ <strong><a id="likes-<%= message.id %>">0</a></p>
+
+      var clicks = 0;
+      function hello(likesId, messageId) {
+        var clicksElement = document.getElementById(likesId);
+        var clicks = parseInt(clicksElement.innerHTML);
+        clicksElement.innerHTML = clicks + 1;
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/like/" + messageId);
+        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xhr.send(JSON.stringify({ message_id: messageId }));
+      };
+      </script>
+      <div class="message-helpful-child">
+      <p><strong>+ <strong><a id="likes-<%= message.id %>">0</a></p>
+      </div>
+
 
     </div>
     <div class="message-actions" id="pinColor">
       <button type="button" class="btn btn-secondary">Like</button>
       <button type="button" class="btn btn-secondary">Reply</button>
       <button type="button" class="btn btn-primary">Hint</button>
-
+    </div>
     </div>
   </div>
 </div>

@@ -138,6 +138,11 @@ body {
   right: -12x;
   bottom: -12px;
   margin-top: 10px;
+  display: flex;
+}
+
+.message-helpful-child {
+  margin: 5px;
 }
 
 .message-helpful .btn {
