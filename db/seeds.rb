@@ -24,6 +24,7 @@ pp "Reincarnating users..."
     password: "123456",
     first_name: Faker::Name.first_name,
     last_name: Faker::Games::ElderScrolls.last_name,
+    nickname: Faker::Internet.username,
     batch: 1122,
     role: true
   )
@@ -32,8 +33,8 @@ end
 
 # Create users for dev
 pp "Creating admin accounts"
-User.create(email: "sam@gmail.com", password: "123123")
-User.create(email: "admin@admin.com", password: "123123")
+User.create(email: "sam@gmail.com", password: "123123", nickname: "Sam")
+User.create(email: "admin@admin.com", password: "123123", nickname: "Admin")
 
 # Create new channels
 pp "Creating channel seeds..."
@@ -74,7 +75,7 @@ Issue.create!(
 pp "Now adding the rest..."
 
 Channel.all.each do |channel|
-  rand(0..3).times do
+  rand(0..30).times do
     Issue.create!(
       title: "#{["Help with", "Can't seem to", "What is", "I've been struggling with", "Help...", "WTF is"].sample} #{Faker::Hacker.ingverb} #{Faker::Hacker.adjective} #{Faker::Hacker.abbreviation}",
       description: "#{Faker::Hacker.say_something_smart}",
