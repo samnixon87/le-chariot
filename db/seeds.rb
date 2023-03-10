@@ -33,8 +33,8 @@ end
 
 # Create users for dev
 pp "Creating admin accounts"
-User.create(email: "sam@gmail.com", password: "123123", nickname: "Sam")
-User.create(email: "admin@admin.com", password: "123123", nickname: "Admin")
+User.create(email: "sam@gmail.com", password: "123123", nickname: "Sam", batch: "1122")
+User.create(email: "admin@admin.com", password: "123123", nickname: "Admin", batch: "1122")
 
 # Create new channels
 pp "Creating channel seeds..."
