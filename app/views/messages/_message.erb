@@ -17,11 +17,13 @@
         <p><%= message.content %></p>
       </div>
     </div>
+    <div class="message-helpful">
+      <button type="button" class="btn btn-primary" id="pinned" data-action="click->mark-complete#markComplete">👍</button>
+    </div>
     <div class="message-actions" id="pinColor">
       <button type="button" class="btn btn-secondary">Like</button>
       <button type="button" class="btn btn-secondary">Reply</button>
       <button type="button" class="btn btn-primary">Hint</button>
-      <button type="button" class="btn btn-primary" id="pinned" data-action="click->mark-complete#markComplete">This answer helped me 👍</button>
     </div>
   </div>
 </div>

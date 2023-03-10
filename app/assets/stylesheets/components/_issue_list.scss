@@ -68,3 +68,18 @@
   background-color: rgba(98, 98, 98, 0.1);
   cursor: pointer;
 }
+
+.create-new {
+  color: $blue;
+  text-decoration: none;
+}
+
+.issue-top {
+  padding-bottom: 4px;
+  border-bottom: 1px solid $orange;
+}
+
+
+.issue-top h3 {
+  padding-bottom: 2px;
+}
