@@ -2,8 +2,8 @@
   overflow-y: auto;
   height: 80vh;
   padding: 10px;
-  background-color: #f9f9f9;
   overflow-x: hidden;
+  color: $pink;
 }
 
 .dark-mode {
@@ -80,7 +80,6 @@
 
 .issue-top {
   padding-bottom: 4px;
-  border-bottom: 1px solid $orange;
 }
 
 .dark-mode {
@@ -92,4 +91,10 @@
 
 .issue-top h3 {
   padding-bottom: 2px;
+}
+
+.issue-title-header {
+  font-size: 2rem;
+  font-weight: bold;
+  color: $orange;
 }
