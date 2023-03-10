@@ -8,18 +8,22 @@
           <%# <%= f.input :rating, as: :radio_buttons, collection: [1, 2, 3, 4, 5] %>
           <%= f.input :description, :input_html => { :class => 'form-input' } %>
           <%= f.input :code_block, :input_html => { :class => 'form-input' } %>
-          <%= f.submit "Post", class: 'btn btn-primary' %>
+          <%= f.submit class: 'btn btn-primary' %>
         <% end %>
       <% else %>
         <%= simple_form_for [@issue] do |f| %>
-          <%= f.collection_radio_buttons :channel_id, [[1,"Ruby"], [2,"Rails"], [3, "HTML"], [4, "CSS"], [5, "JS"], [6, "Stimulus"], [7, "React"]], :label => "Which language are you having trouble with?"  %>
-          <%= f.input :title, :label => "Describe what you're struggling with in a few words." %>
-          <%= f.input :description, :label => "Add some more detail. The more information you can give, the better.", :input_html => { :class => 'form-input' } %>
-          <%= f.input :code_block, :label => "Copy/paste in any code here that will be helpful to resolve your issue.", :input_html => { :class => 'form-input' } %>
-          <%= f.submit "Post your issue", class: 'btn btn-primary' %>
+          <%= f.input :channel_id, as: :radio_buttons, collection: [1, 2, 3, 4, 5] %>
+          <%= f.input :title %>
+          <%# <%= f.input :rating, as: :radio_buttons, collection: [1, 2, 3, 4, 5] %>
+          <%= f.input :description, :input_html => { :class => 'form-input' } %>
+          <%= f.input :code_block, :input_html => { :class => 'form-input' } %>
+          <%= f.submit class: 'btn btn-primary' %>
         <% end %>
       <% end %>
     </div>
+  <div class="pagination">
+    <button class="btn btn-submit hidden" id="submit">Submit</button>
+  </div>
 </div>
 <style>
   :root {
@@ -98,6 +102,19 @@
 
   .btn-submit:hover {
     background-color: var(--color-2-hover);
+  }
+
+  .pagination {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .pagination .btn {
+    width: 100%;
+    text-align: center;
+    margin: 0 6px;
   }
 
   .tab-status {
