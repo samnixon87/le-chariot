@@ -5,3 +5,5 @@ import "bootstrap"
 // import "dark_mode"
 
 console.log('ápplication!')
+import "trix"
+import "@rails/actiontext"
