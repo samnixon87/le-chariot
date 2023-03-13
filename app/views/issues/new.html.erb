@@ -45,12 +45,13 @@
           <li>Include your environment. If you're seeing an error message, copy/paste it in.</li>
         </ul>
       </div>
+      <p>Paste your code below:</p>
       <%= form_for :ai_request, url: ai_request_path, method: :post, remote: true do |f| %>
   <%= f.hidden_field :uuid, value: @uuid %>
   <div class="form-group">
-    <%= f.text_area :prompt, class:"form-control" %>
+    <%= f.text_area :prompt, class:"form-control", placeholder: "My code is returning missing <div>..." %>
   </div>
-  <%= f.select :ai_model, options_for_select([
+  <%# f.select :ai_model, options_for_select([
         [ "Ada $0.0016 / 1K tokens", "ada" ],
         [ "Babbage $0.0024 / 1K tokens", "babbage" ],
         [ "Curie $0.0120 / 1K tokens", "curie" ],
@@ -59,12 +60,17 @@
         [ "DALL-E 512×512	$0.018 / image", "image/512x512"],
         [ "DALL-E 256×256	$0.016 / image", "image/256x256"],
     ], "davinci"), {}, class:"form-control" %>
-  <%= f.submit "Help me refine my issue", class:"btn btn-primary" %>
+  <%= f.submit "Help me refine my issue", class:"btn btn-outline-primary mb-4 mt-4 float-left" %>
 <% end %>
-<div class="p-4 border rounded chat-hint-box">
-  <% if @generated_idea %>
-    <%= content_tag(:div, @generated_idea) %>
-  <% end %>
+<p>Paste your code below:</p>
+<div class="p-4 mb-4 mt-4 border rounded chat-hint-box">
+  <%= turbo_stream_from "channel_#{@uuid}" %>
+  <div id="ai_output">
+    <%= render partial: "ai/output", locals: { generated_idea: "" } %>
+  </div>
+  <div id="ai_output_image">
+    <%# render partial: "ai/output_image", locals: { generated_image: "" } %>
+  </div>
 </div>
     </div>
   </div>
