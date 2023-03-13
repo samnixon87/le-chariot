@@ -4,9 +4,8 @@ body {
 
 .message-list {
   overflow: scroll;
-  height:50vh;
   margin-top: 10px;
-  margin-bottom: 16px;
+  // min-height: calc(100% - 5rem);
 }
 
 .message {
@@ -122,10 +121,11 @@ body {
 }
 
 .message-input {
-  position: sticky;
-  top: 0;
+  // position: sticky;
+  // bottom: 0;
   margin-right: 8px;
   margin-top: 8px;
+  justify-self: flex-end;
 }
 
 .message-input-bar {
@@ -182,6 +182,10 @@ body {
 
 .chat-message-column {
   background-color: $white;
+  height: 95vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .dark-mode {
