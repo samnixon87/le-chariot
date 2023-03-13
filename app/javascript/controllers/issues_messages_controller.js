@@ -19,6 +19,7 @@ export default class extends Controller {
     event.target.parentElement.classList.add("active")
 
     const url = `${event.target.href}`
+    console.log(url)
     fetch(url, {headers: {"Accept": "application/json"}})
       .then(response => response.json())
       .then((data) => {

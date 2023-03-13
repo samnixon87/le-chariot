@@ -1,4 +1,4 @@
-<div class="container mt-4 pt-4 col-6">
+<div class="container mt-4 pt-4 col-4 d-flex">
   <div class="row">
     <h2>Log in</h2>
 
@@ -15,10 +15,27 @@
       </div>
 
       <div class="form-actions">
-        <%= f.button :submit, "Log in", class: "btn btn-primary" %>
+        <%= f.button :submit, "Log in", class: "btn btn-primary btn-lg btn-block col-12" %>
       </div>
     <% end %>
-    <div class="py-4">
+    <div class="row mx-0 my-2">
+      <div class="col"><hr></div>
+      <div class="col-auto">or</div>
+      <div class="col"><hr></div>
+    </div>
+    <div class="github mb-2">
+      <%- if devise_mapping.omniauthable? %>
+        <%- resource_class.omniauth_providers.each do |provider| %>
+          <%= button_to omniauth_authorize_path(resource_name, provider),
+                        data: { turbo: false },
+                        :class => "btn btn-primary col-12" do %>
+                          Log in with GitHub <i class="fa-brands fa-github"></i>
+                        <% end %>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="py-2 d-flex justify-content-between">
       <%= render "devise/shared/links" %>
     </div>
   </div>
