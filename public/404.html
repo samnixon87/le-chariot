@@ -28,8 +28,11 @@
 <body class="rails-default-error-page">
   <!-- This file lives in public/404.html -->
   <div class="container">
-    <h1>An error as occured.</h1>
+    <h1>An error has occured.</h1>
     <h1>(╯°□°)╯︵ ┻━┻</h1>
+    <div class="btn btn-primary mt-4">
+      <%= link_to 'Back to home page', root_path, :class => "btn" %>
+    </div>
     <a href="/">Go back to the home page</a>
   </div>
 </body>
