@@ -1,14 +1,14 @@
 <%# AI Stuff %>
-<div class="container mt-5">
-  <h1>ChadGPT</h1>
-  <p></p>
-  <%= render partial: "ai/request_form", locals: { uuid: @uuid } %>
-  <%= turbo_stream_from "channel_#{@uuid}" %>
-  <div id="ai_output">
-    <%= render partial: "ai/output", locals: { generated_idea: "" } %>
-  </div>
+<%# <div class="container mt-5"> %>
+  <%# <h1>ChadGPT</h1> %>
+  <%# <p></p> %>
+  <%# <%= render partial: "ai/request_form", locals: { uuid: @uuid } %>
+  <%# <%= turbo_stream_from "channel_#{@uuid}" %>
+  <%# <div id="ai_output"> %>
+    <%# <%= render partial: "ai/output", locals: { generated_idea: "" } %>
+  <%# </div> %>
   <%# <div id="ai_output_image">
     <%= render partial: "ai/output_image", locals: { generated_image: "" } %>
-</div>
-</div>
+<%# </div> %>
+<%# </div> %>
 <%# AI Stuff %>
