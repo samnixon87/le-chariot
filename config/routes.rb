@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => {registrations: 'registrations', omniauth_callbacks: 'callbacks'}
   post 'ai_request', to: 'pages#ai_request'
   root to: "pages#home"
   get "/chatgpt" => "pages#issues_new"
