@@ -1,10 +1,14 @@
 <div class="channel-list d-flex flex-column align-items-stretch">
-  <% channels.each do |channel| %>
+  <% channels.each do |channel_icon| %>
     <div class="channel-item-div"
           data-controller="channel-subscription"
-          data-channel-subscription-channel-id-value="<%= channel %>">
-      <%= link_to channel_path(channel) do %>
-        <%= image_tag "#{channel.name.downcase}.png", class: "channel-img" %>
+          data-channel-subscription-channel-id-value="<%= channel_icon %>">
+      <%= link_to channel_path(channel_icon) do %>
+        <% if channel_icon == @channel %>
+          <%= image_tag "#{channel_icon.name.downcase}.png", class: "channel-img active" %>
+        <% else %>
+          <%= image_tag "#{channel_icon.name.downcase}.png", class: "channel-img" %>
+        <% end %>
       <% end %>
     </div>
   <% end %>
