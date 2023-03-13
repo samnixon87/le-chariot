@@ -22,6 +22,18 @@
 		color: black;
 	}
 
+  .home-button {
+    background-color: #F75606;
+    font-size: 16px;
+    padding: 12px 28px;
+    color: white;
+    border-radius: 4px;
+  }
+
+  .home-button a:link {
+      text-decoration: none;
+}
+
   </style>
 </head>
 
@@ -30,10 +42,10 @@
   <div class="container">
     <h1>An error has occured.</h1>
     <h1>(╯°□°)╯︵ ┻━┻</h1>
-    <div class="btn btn-primary mt-4">
-      <%= link_to 'Back to home page', root_path, :class => "btn" %>
+    <br>
+    <div class="home-button">
+      <a href="/">Go back to the home page</a>
     </div>
-    <a href="/">Go back to the home page</a>
   </div>
 </body>
 </html>
