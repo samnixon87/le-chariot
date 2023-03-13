@@ -4,7 +4,7 @@
       <div class="message-img">
         <img src="https://via.placeholder.com/50x50" alt="User Image">
       </div>
-      <div class="message-name"><%= message.user.nickname %> - Batch #<%= message.user.batch %></div>
+      <div class="message-name"><%= link_to message.user.nickname, user_path(message.user.id) %> - Batch #<%= message.user.batch %></div>
       <div class="message-time">
         <%=distance_of_time_in_words(Time.now, message.created_at)%>
       </div>
@@ -22,11 +22,9 @@
     </div>
     <div class="message-actions" id="pinColor">
       <%# <button type="button" class="btn btn-secondary">Reply</button> %>
-      <button type="button" onclick="hello('likes-<%= message.id %>')" class="btn btn-primary" id="pinned" data-action="click->mark-complete#markComplete"><a
-        data-controller="confetti"
-        data-confetti-follow-value="false"
-        data-action="click->confetti#spray"
-        data-confetti-animation-value="basic">👍</a></button>
+      <% unless current_user.favourite_messages.include?(message) %>
+        <%= link_to "👍",  message_favourites_path(message), data: { controller: "confetti", mark_complete_target: "like", confetti_follow_value: false, confetti_animation_value: "basic", action: "click->confetti#spray click->mark-complete#markComplete" }, class: "btn" %>
+      <% end %>
 
       <%# Clicking like %>
        <script type="text/javascript">
