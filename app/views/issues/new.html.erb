@@ -45,7 +45,7 @@
           <li>Include your environment. If you're seeing an error message, copy/paste it in.</li>
         </ul>
       </div>
-      <p>Paste your code below:</p>
+      <p>Paste your problem below.</p>
       <%= form_for :ai_request, url: ai_request_path, method: :post, remote: true do |f| %>
   <%= f.hidden_field :uuid, value: @uuid %>
   <div class="form-group">
@@ -62,14 +62,15 @@
     ], "davinci"), {}, class:"form-control" %>
   <%= f.submit "Help me refine my issue", class:"btn btn-outline-primary mb-4 mt-4 float-left" %>
 <% end %>
-<p>Paste your code below:</p>
-<div class="p-4 mb-4 mt-4 border rounded chat-hint-box">
+<p>Refined problem.</p>
+<div data-controller="copy" class="p-4 mb-4 mt-4 border rounded chat-hint-box">
   <%= turbo_stream_from "channel_#{@uuid}" %>
-  <div id="ai_output">
+  <div data-copy-target="text" id="ai_output">
     <%= render partial: "ai/output", locals: { generated_idea: "" } %>
   </div>
   <div id="ai_output_image">
     <%# render partial: "ai/output_image", locals: { generated_image: "" } %>
+  <button data-copy-target="button" class="btn btn-secondary mt-2" data-action="click->copy#copyText">Copy text</button>
   </div>
 </div>
     </div>
