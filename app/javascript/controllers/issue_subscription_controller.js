@@ -20,6 +20,7 @@ export default class extends Controller {
       { received: data => this.#insertMessageAndScrollDown(data) }
     )
     console.log(`Subscribe to the Issue chatroom with the id ${this.issueIdValue}.`)
+
   }
 
   disconnect() {
