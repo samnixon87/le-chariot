@@ -125,6 +125,8 @@ GEM
     ffi (1.15.5)
     font-awesome-sass (6.3.0)
       sassc (~> 2.0)
+    friendly_id (5.4.2)
+      activerecord (>= 4.0.0)
     globalid (1.1.0)
       activesupport (>= 5.0)
     httparty (0.21.0)
@@ -289,6 +291,7 @@ DEPENDENCIES
   faraday (~> 2.7)
   font-awesome-sass (~> 6.1)
   foreman!
+  friendly_id (~> 5.4.0)
   jbuilder
   jsbundling-rails
   pg (~> 1.1)
