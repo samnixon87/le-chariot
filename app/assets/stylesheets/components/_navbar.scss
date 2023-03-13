@@ -2,6 +2,7 @@
   justify-content: space-between;
   background: white;
   border-bottom: 1px solid black;
+  height: 5vh;
 }
 
 .dark-mode {
@@ -59,6 +60,14 @@
   .navbar-lewagon .fa-solid {
     color: white;
   }
+}
+
+.fa-moon {
+  margin-right: 12px;
+}
+
+.fa-sun {
+  margin-left: 12px;
 }
 
 /* The switch - the box around the slider */
@@ -124,4 +133,12 @@ input:checked+.slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+.dropdown {
+  cursor: pointer;
+}
+
+.logo-title-nav{
+  display: flex;
 }

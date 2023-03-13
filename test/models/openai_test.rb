@@ -1,6 +1,6 @@
 require "test_helper"
 
-class ChatroomMessageTest < ActiveSupport::TestCase
+class OpenaiTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

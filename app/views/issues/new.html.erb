@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row">
+    <div class="mt-4 p-4 col border rounded-lg bg-light issue-creation-box me-4">
+      <div class="mb-4">
+        <h2>Create an issue <%= "for #{@channel.name}" unless @channel.nil? %></h2>
+        <% if @channel %>
+          <%= simple_form_for [@channel, @issue] do |f| %>
+            <%= f.input :title, :label => "Describe what you're struggling with in a few words." %>
+            <div class="mb-4">
+              <p>Add some more detail. The more information you can give, the better.</p>
+              <%= f.rich_text_area :description, :label => "Add some more detail. The more information you can give, the better.", :input_html => { :class => 'form-input mb-2' } %>
+            </div>
+            <div class="mb-4 code-block-style">
+              <p>Copy/paste in any code here that will be helpful to resolve your issue.</p>
+              <%= f.rich_text_area :code_block, :label => "Copy/paste in any code here that will be helpful to resolve your issue.", :input_html => { :class => 'form-input' } %>
+            </div>
+            <%= f.submit "Post your issue", class: 'btn btn-primary' %>
+          <% end %>
+        <% else %>
+          <%= simple_form_for [@issue] do |f| %>
+            <%= f.input :channel_id, as: :radio_buttons, collection: Channel.all.pluck(:name, :id), label: "Which language are you having trouble with?" %>
+            <%= f.input :title, :label => "Describe what you're struggling with in a few words." %>
+            <div class="mb-4">
+              <p>Add some more detail. The more information you can give, the better.</p>
+              <%= f.rich_text_area :description, :label => "Add some more detail. The more information you can give, the better.", :input_html => { :class => 'form-input mb-2' } %>
+            </div>
+            <div class="mb-4 code-block-style">
+              <p>Copy/paste in any code here that will be helpful to resolve your issue.</p>
+              <%= f.rich_text_area :code_block, :label => "Copy/paste in any code here that will be helpful to resolve your issue.", :input_html => { :class => 'form-input' } %>
+            </div>
+            <%= f.submit "Post your issue", class: 'btn btn-primary' %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="mt-4 p-4 col border rounded-lg bg-light issue-definition-box">
+      <div class="mb-4">
+        <h4>How to ask a good question</h4>
+        <p class="text-muted">When you're asking a question, it's important to be as specific as possible. The more information you can give, the better. Here are some tips to help you get the most out of your question.</p>
+        <ul class ="text-muted">
+          <li>Be specific. The more information you can give, the better.</li>
+          <li>Include code samples. Copy/paste in any code that will be helpful to resolve your issue.</li>
+          <li>Include screenshots. Screenshots can be helpful to show what you're seeing.</li>
+          <li>Include error messages. If you're seeing an error message, copy/paste it in.</li>
+          <li>Include your environment. If you're seeing an error message, copy/paste it in.</li>
+        </ul>
+      </div>
+      <button class="btn btn-outline-primary mb-4">Help me refine my issue</button>
+      <div class="p-4 border rounded chat-hint-box">
+        <p>ChadGPT hint to come here...</p>
+      </div>
+    </div>
+  </div>
+</div>

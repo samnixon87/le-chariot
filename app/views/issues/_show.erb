@@ -1,0 +1,30 @@
+<% if @issue.nil?  %>
+  <h3>No issues here</h3>
+<% else %>
+  <div class="">
+    <h4 class="issue-title-header mt-3 m-2 pt-4 px-2"># <%= @issue.title.downcase %></h4>
+    <p class="m-2 px-2"> <%= @issue.description %></p>
+    <p class="m-2 px-2"> <%= @issue.code_block %></p>
+  </div>
+  <div class="message-list mt-3">
+    <div
+      data-controller="issue-subscription"
+      data-issue-subscription-issue-id-value="<%= @issue.id %>">
+      <div class="messages" data-issue-subscription-target="messages">
+        <% @issue.messages.each do |message| %>
+          <%= render "messages/message", message: message %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="message-input">
+    <%= simple_form_for [@issue, @message], html: { data: { action: "turbo:submit-end->issue-subscription#resetForm" }, class: "message-input-bar d-flex" } do |f| %>
+      <%= f.input :content,
+                  label: false,
+                  placeholder: "Message ##{@issue.title}",
+                  wrapper_html: {class: "flex-grow-1"}
+                %>
+      <%= f.submit "Reply", class: "btn btn-primary mb-3" %>
+    <% end %>
+  </div>
+<% end %>

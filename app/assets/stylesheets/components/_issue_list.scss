@@ -1,0 +1,102 @@
+.issue-list {
+  overflow-y: auto;
+  height: 90vh;
+  padding: 10px;
+  overflow-x: hidden;
+}
+
+.dark-mode {
+  .issue-list {
+    background-color: #3c4043;
+  }
+}
+
+.issue-column {
+  padding: 10px;
+}
+
+.dark-mode {
+  .issue-column {
+    background-color: #3c4043;
+  }
+}
+
+.issue-header {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.dark-mode {
+  .issue-column {
+    background-color: #3c4043;
+  }
+}
+
+.issue-header img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.issue {
+  display: block;
+  padding: 4px;
+  transition: 0.2s;
+  color: $purple;
+}
+
+.issue a {
+  text-decoration: none;
+}
+
+.dark-mode {
+  .issue {
+    background-color: #3c4043;
+  }
+}
+
+.issue.active {
+  background-color: rgba(98, 98, 98, 0.1);
+  border-radius: 4px;
+  font-weight: bold;
+  color: #333;
+}
+
+.issue:hover {
+  background-color: rgba(98, 98, 98, 0.1);
+  cursor: pointer;
+}
+
+.search-bar {
+  margin-bottom: 20px;
+}
+
+.create-new {
+  color: $blue;
+  text-decoration: none;
+}
+
+.issue-top {
+  padding-bottom: 4px;
+}
+
+.dark-mode {
+  .issue-top {
+    background-color: #3c4043;
+  }
+}
+
+.issue-top h3 {
+  padding-bottom: 2px;
+}
+
+.issue-title-header {
+  font-size: 2rem;
+  font-weight: bold;
+  color: $orange;
+}

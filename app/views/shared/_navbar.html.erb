@@ -1,8 +1,12 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid container">
-    <%= link_to "/", class: "navbar-brand" do %>
-      <%# <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
-      <div class="logotype"><span><strong>Le</strong></span>Chariot</div>
+  <div class="container-fluid">
+  <div class="logo-title-nav">
+    <div class="child-nav">
+      <%= link_to "/", class: "navbar-brand" do %>
+        <%= image_tag asset_path('logo.png') %>
+    </div>
+        <div class="logotype"><span><strong>Le </strong>Chariot</span></div>
+  </div>
     <% end %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -11,16 +15,22 @@
       <ul class="navbar-nav me-auto d-flex align-items-center">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
+            <%= link_to "Create an issue", new_issue_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
+            <%= link_to "Browse channels", channel_path(Channel.first), class: "nav-link" %>
           </li>
+          <i class="fa-solid fa-sun"></i>
+          <label class="switch">
+            <input type="checkbox" onchange="darkMode()">
+            <span class="slider round"></span>
+          </label>
+          <i class="fa-solid fa-moon"></i>
           <li class="nav-item dropdown">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
+              <%= link_to "Account", "#", class: "dropdown-item" %>
+              <%= link_to "Settings", "#", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
@@ -41,7 +51,7 @@
 </div>
 <script>
   function darkMode() {
-     var element = document.body;
-     element.classList.toggle("dark-mode");
-  }
+    var element = document.body;
+    element.classList.toggle("dark-mode");
+     }
 </script>

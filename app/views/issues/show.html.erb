@@ -1,0 +1,38 @@
+<!-- Languages column -->
+<div class="">
+  <div class="row">
+    <div class="col-1 bg-dark p-3 border-right border-black">
+      <div class="d-flex justify-content-center">
+        <img src="<%= image_path('js.png') %>" alt="logo" class="rounded border border-white" width="50px" height="50px">
+      </div>
+    </div>
+    <!-- Issues column -->
+    <%= render "channels/index", channels: @channels %>
+    <!-- Messages column -->
+  </div>
+  <div class="col-8 chatroom-border">
+    <div class="container">
+      <div data-controller="issue-subscription"
+            data-issue-subscription-issue-id-value="<%= @issue.id %>"
+            class="mt-2">
+        <h3 class="mt-4">#<%= @issue.title %></h3>
+        <div class="message-list mt-3">
+          <div class="messages" data-issue-subscription-target="messages">
+            <% @issue.messages.each do |message| %>
+              <%= render "messages/message", message: message %>
+            <% end %>
+          </div>
+        </div>
+        <div class="message-input">
+          <%= simple_form_for [@issue, @message], html: { data: { action: "turbo:submit-end->issue-subscription#resetForm" }, class: "message-input-bar" } do |f| %>
+            <%= f.input :content,
+              label: false,
+              placeholder: "Message ##{@issue.title}",
+              wrapper_html: {class: "flex-grow-1"}
+            %>
+            <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>

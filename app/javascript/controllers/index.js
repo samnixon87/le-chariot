@@ -4,8 +4,20 @@
 
 import { application } from "./application"
 
-import ChannelSubscriptionController from "./channel_subscription_controller"
-application.register("channel-subscription", ChannelSubscriptionController)
-
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import IssueSubscriptionController from "./issue_subscription_controller"
+application.register("issue-subscription", IssueSubscriptionController)
+
+import IssuesMessagesController from "./issues_messages_controller"
+application.register("issues-messages", IssuesMessagesController)
+
+import SearchIssuesController from "./search_issues_controller"
+application.register("search-issues", SearchIssuesController)
+
+import MarkCompleteController from "./mark_complete_controller"
+application.register("mark-complete", MarkCompleteController)
+
+import { Confetti } from "stimulus-confetti"
+application.register('confetti', Confetti)

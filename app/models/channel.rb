@@ -1,3 +1,5 @@
 class Channel < ApplicationRecord
-  has_many :chatroom_messages
+  extend FriendlyId
+  friendly_id :name, use: [:slugged, :history]
+  has_many :issues, dependent: :destroy
 end

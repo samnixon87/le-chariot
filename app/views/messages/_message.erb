@@ -1,0 +1,48 @@
+<div class="message mt-4">
+  <div class="message-content" data-controller="mark-complete">
+    <div class="message-header">
+      <div class="message-img">
+        <img src="https://via.placeholder.com/50x50" alt="User Image">
+      </div>
+      <div class="message-name"><%= message.user.nickname %> - Batch #<%= message.user.batch %></div>
+      <div class="message-time">
+        <%=distance_of_time_in_words(Time.now, message.created_at)%>
+      </div>
+    </div>
+    <div class="message-body">
+      <div id="message-<%= message.id %>">
+        <small>
+          <strong><%= message.user.nickname %></strong>
+        </small>
+        <p><%= message.content %></p>
+      </div>
+    </div>
+    <div class="message-helpful">
+      <p><strong>+<a id="likes-<%= message.id %>">0</a></strong></p>
+    </div>
+    <div class="message-actions" id="pinColor">
+      <%# <button type="button" class="btn btn-secondary">Reply</button> %>
+      <button type="button" onclick="hello('likes-<%= message.id %>')" class="btn btn-primary" id="pinned" data-action="click->mark-complete#markComplete"><a
+        data-controller="confetti"
+        data-confetti-follow-value="false"
+        data-action="click->confetti#spray"
+        data-confetti-animation-value="basic">👍</a></button>
+
+      <%# Clicking like %>
+       <script type="text/javascript">
+
+    var clicks = 0;
+    function hello(likesId, messageId) {
+      var clicksElement = document.getElementById(likesId);
+      var clicks = parseInt(clicksElement.innerHTML);
+      clicksElement.innerHTML = clicks + 1;
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "/like/" + messageId);
+      xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+      xhr.send(JSON.stringify({ message_id: messageId }));
+    };
+    </script>      <button type="button" class="btn btn-primary">Hint</button>
+
+    </div>
+  </div>
+</div>
