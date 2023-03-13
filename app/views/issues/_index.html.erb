@@ -1,8 +1,8 @@
 <div class="issue-list">
   <div data-controller="search-issues">
-    <div class="issue-top mx-3 w-100 position-relative">
-      <h4>Open questions</h4>
-      <%= link_to "Create new issue", new_channel_issue_path(@channel), class: "create-new" %>
+    <div class="issue-top mx-3 position-relative">
+      <h4>Open Issues</h4>
+      <%= link_to "Create new issue", new_channel_issue_path(@channel), class: "btn btn-primary w-100 mb-2" %>
     </div>
     <%= form_with url: channel_issues_path(@channel), method: :get, html: {class:"d-flex search-bar mx-3", data: {search_issues_target: "form"}} do |form| %>
       <%= form.text_field :query,
@@ -13,10 +13,11 @@
           search_issues_target: "input",
           action: "keyup->search-issues#update"
         } %>
-      <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+      <%= button_tag(type: 'submit', class: "search-icon") do %>
         <i class="fas fa-search"></i>
       <% end %>
     <% end %>
+    <div class="border-top mb-3 mx-3"></div>
     <%= render "issues/list", issues: @issues %>
   </div>
 </div>
