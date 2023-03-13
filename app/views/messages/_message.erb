@@ -4,7 +4,7 @@
       <div class="message-img">
         <img src="https://via.placeholder.com/50x50" alt="User Image">
       </div>
-      <div class="message-name"><%= message.user.nickname %> - Batch #<%= message.user.batch %></div>
+      <div class="message-name"><%= link_to message.user.nickname, user_path(message.user.id) %> - Batch #<%= message.user.batch %></div>
       <div class="message-time">
         <%=distance_of_time_in_words(Time.now, message.created_at)%>
       </div>
