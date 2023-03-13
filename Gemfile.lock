@@ -297,8 +297,8 @@ DEPENDENCIES
   faraday (~> 2.7)
   font-awesome-sass (~> 6.1)
   foreman!
-  image_processing (~> 1.2)
   friendly_id (~> 5.4.0)
+  image_processing (~> 1.2)
   jbuilder
   jsbundling-rails
   pg (~> 1.1)
