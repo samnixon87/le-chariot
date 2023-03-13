@@ -1,5 +1,5 @@
 <div data-search-issues-target="list">
-  <% @issues.each do |issue| %>
+  <% @issues.reverse.each do |issue| %>
     <div class="issue mx-3"
           data-controller="issue-subscription"
           data-channel-subscription-channel-id-value="<%= issue.id %>">
