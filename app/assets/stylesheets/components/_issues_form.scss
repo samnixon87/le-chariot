@@ -1,0 +1,52 @@
+.code-block-style .trix-content {
+  background-color: #212125;
+  color: white;
+  padding: 1em;
+  font-family: monospace;
+}
+
+.form-control {
+  border-radius: 3px;
+}
+
+.code-block-style .trix-button-row {
+  display: none;
+}
+
+.issue-definition-box {
+  border-radius: 10px;
+}
+
+.issue-creation-box {
+  border-radius: 10px;
+}
+
+.chat-hint-box {}
+
+.dark-mode {
+  .issue-definition-box {
+    background-color: #3c4043 !important;
+    border: solid 1px #5f6368 !important;
+  }
+
+  .issue-definition-box ul {
+    color: white !important;
+  }
+
+  .issue-definition-box p {
+    color: white !important;
+  }
+
+  .issue-creation-box {
+    background-color: #3c4043 !important;
+    border: solid 1px #5f6368 !important;
+  }
+
+  .trix-button {
+    color: white !important;
+  }
+
+  .form-control {
+    background-color: #3c4043;
+  }
+}

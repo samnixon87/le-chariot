@@ -1,6 +1,9 @@
 class Issue < ApplicationRecord
   include PgSearch::Model
 
+  has_rich_text :description
+  has_rich_text :code_block
+
   belongs_to :user
   belongs_to :channel
   has_many :suggested_answers, dependent: :destroy
