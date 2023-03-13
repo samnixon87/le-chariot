@@ -2,6 +2,7 @@
 import "@hotwired/turbo-rails"
 import "./controllers"
 import "bootstrap"
+
 // import "dark_mode"
 
 console.log('ápplication!')

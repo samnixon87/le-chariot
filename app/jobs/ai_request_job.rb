@@ -10,7 +10,7 @@ class AiRequestJob < ApplicationJob
       req.headers['Content-Type'] = 'application/json'
       req.headers['Authorization'] = "Bearer #{api_key}"
       req.body = {
-        prompt: "Can you give a vague hint on what's wrong with the following code: '#{ai_request_params[:prompt]}'",
+        prompt: "'Can you suggest ways to improve the following and rephrase it into a question? #{ai_request_params[:prompt]}'",
         max_tokens: 250,
         temperature: 0.5,
         n: 1

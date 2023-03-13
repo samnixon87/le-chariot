@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   resources :favourites
-  devise_for :users
+  devise_for :users, :controllers => {registrations: 'registrations', omniauth_callbacks: 'callbacks'}
   post 'ai_request', to: 'pages#ai_request'
   root to: "pages#home"
-  get "/chatgpt" => "pages#chatgpt"
+  get "/chatgpt" => "pages#issues_new"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -19,4 +19,6 @@ Rails.application.routes.draw do
   resources :messages do
     resources :favourites, only: [:create, :destroy]
   end
+  resources :users, only: [:show, :edit]
+
 end
