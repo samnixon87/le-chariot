@@ -34,7 +34,7 @@ export default class extends Controller {
   #insertMessageAndScrollDown(data) {
 
     this.messagesTarget.insertAdjacentHTML("beforeend", data);
-    this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight);
+    this.messagesTarget.parentElement.parentElement.scrollTo(0, this.messagesTarget.parentElement.parentElement.scrollHeight);
     console.log(`testing`)
   }
 }
