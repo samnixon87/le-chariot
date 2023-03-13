@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :omniauthable
   has_many :issues, dependent: :destroy
   has_many :messages, dependent: :destroy
+  has_many :favourites, dependent: :destroy
+  has_many :favourite_messages, through: :favourites, source: :message
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

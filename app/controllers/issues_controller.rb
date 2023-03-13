@@ -1,6 +1,6 @@
 class IssuesController < ApplicationController
   def index
-    @channel = Channel.find(params[:channel_id])
+    @channel = Channel.find_by(slug: params[:channel_slug])
     @issues = @channel.issues
     respond_to do |format|
       if params[:query].present?
@@ -14,8 +14,8 @@ class IssuesController < ApplicationController
   end
 
   def new
-    if params[:channel_id]
-      @channel = Channel.find(params[:channel_id])
+    if params[:channel_slug]
+      @channel = Channel.find_by(slug: params[:channel_slug])
     end
     @user = current_user
     @issue = Issue.new
@@ -23,15 +23,15 @@ class IssuesController < ApplicationController
 
   def create
     @issue = Issue.new(issue_params)
-    if params[:channel_id]
-      @channel = Channel.find(params[:channel_id])
+    if params[:channel_slug]
+      @channel = Channel.find_by(slug: params[:channel_slug])
       @issue.channel = @channel
     end
     # @channels = Channel.all
     @user = current_user
     @issue.user = current_user
     if @issue.save
-      # @channel = Channel.find(params[:channel_id])
+      # @channel = Channel.find(params[:channel_slug])
       redirect_to channel_path(@issue.channel), notice: "Issue created successfully!"
     else
       render :new, status: :unprocessable_entity
@@ -39,7 +39,7 @@ class IssuesController < ApplicationController
   end
 
   def show
-    @channel = Channel.find(params[:channel_id])
+    @channel = Channel.find_by(slug: params[:channel_slug])
     @channels = Channel.all
     @message = Message.new
     @issue = Issue.find(params[:id])

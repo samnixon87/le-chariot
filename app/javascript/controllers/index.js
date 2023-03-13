@@ -19,5 +19,5 @@ application.register("search-issues", SearchIssuesController)
 import MarkCompleteController from "./mark_complete_controller"
 application.register("mark-complete", MarkCompleteController)
 
-import { Confetti } from "stimulus-confetti"
-application.register('confetti', Confetti)
+// import { Confetti } from "/node_modules/stimulus-confetti"
+// application.register('confetti', Confetti)
