@@ -1,8 +1,12 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "/", class: "navbar-brand" do %>
-      <%# <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
-      <div class="logotype"><span><strong>Le</strong></span>Chariot</div>
+  <div class="logo-title-nav">
+    <div class="child-nav">
+      <%= link_to "/", class: "navbar-brand" do %>
+        <%= image_tag asset_path('logo.png') %>
+    </div>
+        <div class="logotype"><span><strong>Le </strong>Chariot</span></div>
+  </div>
     <% end %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -14,7 +18,7 @@
             <%= link_to "Create an issue", new_issue_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Browse channels", channel_path(1), class: "nav-link" %>
+            <%= link_to "Browse channels", channel_path(Channel.first), class: "nav-link" %>
           </li>
           <i class="fa-solid fa-sun"></i>
           <label class="switch">

@@ -1,9 +1,9 @@
 <!-- Languages column -->
-<div class="row chat-window"
+<div class="row chat-window me-0"
   data-controller="issues-messages">
   <div class="col-1 border-right border-black lang-column d-flex justify-content-center pt-3">
     <div class="d-flex">
-      <%= render "channels/index", channels: @channels %>
+      <%= render "channels/index", channels: @channels, channel: @channel %>
     </div>
   </div>
   <!-- Issues list column -->
@@ -14,7 +14,7 @@
       </div>
   </div>
   <!-- Issue messages column -->
-  <div class="col-8 chat-message-column"
+  <div class="col-8 chat-message-column flex-grow-1"
         data-issues-messages-target="messages">
     <%= render "issues/show" %>
   </div>

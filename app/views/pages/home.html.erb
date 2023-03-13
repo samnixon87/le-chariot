@@ -4,7 +4,10 @@
         <h1>Ask technical questions, get helpful answers*</h1>
         <p>* even after the bootcamp</p>
         <div class="btn btn-primary mt-4">
-          <%= link_to 'Get started', channel_path(Channel.first), :class => "btn" %>
+          <%= link_to 'Browse channels', channel_path(Channel.first), :class => "btn" %>
+        </div>
+        <div class="btn btn-primary mt-4">
+          <%= link_to 'Get helped', new_issue_path, :class => "btn" %>
         </div>
       </div>
   <div class="falling-shapes align-items-center flex-grow-1 mt-auto">

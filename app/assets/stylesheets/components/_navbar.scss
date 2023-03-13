@@ -2,6 +2,7 @@
   justify-content: space-between;
   background: white;
   border-bottom: 1px solid black;
+  height: 5vh;
 }
 
 .dark-mode {
@@ -136,4 +137,8 @@ input:checked+.slider:before {
 
 .dropdown {
   cursor: pointer;
+}
+
+.logo-title-nav{
+  display: flex;
 }
