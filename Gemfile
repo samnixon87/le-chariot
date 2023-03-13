@@ -55,6 +55,7 @@ gem "image_processing", "~> 1.2"
 # Add GitHub auth
 gem 'omniauth'
 gem 'omniauth-github'
+gem 'omniauth-rails_csrf_protection'
 
 gem "devise"
 gem "autoprefixer-rails"
