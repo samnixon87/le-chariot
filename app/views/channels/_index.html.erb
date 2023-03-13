@@ -2,8 +2,8 @@
   <% channels.each do |channel| %>
     <div class="channel-item-div"
           data-controller="channel-subscription"
-          data-channel-subscription-channel-id-value="<%= channel.id %>">
-      <%= link_to channel_path(channel.id) do %>
+          data-channel-subscription-channel-id-value="<%= channel %>">
+      <%= link_to channel_path(channel) do %>
         <%= image_tag "#{channel.name.downcase}.png", class: "channel-img" %>
       <% end %>
     </div>
