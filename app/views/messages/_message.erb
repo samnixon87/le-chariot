@@ -15,7 +15,7 @@
       </div>
       <br>
       <div>
-        <strong><p>Message like count: <%= message.favourites.count %></p></strong>
+        <strong><p><%= pluralize( message.favourites.count, "person") %> found this useful!</p></strong>
       </div>
     </div>
     <div class="message-actions" id="pinColor">
