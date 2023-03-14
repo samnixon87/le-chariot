@@ -37,8 +37,8 @@ body {
 .message-content {
   background-color: white;
   padding: 10px;
-  border-radius: 1px;
-  border: solid 1px $green;
+  border-radius: 12px;
+  border: solid 1px #dddddd;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   flex-grow: 1;
   display: flex;
@@ -48,7 +48,7 @@ body {
 }
 
 .message-content:hover {
-  background-color: $light-gray;
+  background-color: #eeeeee;
 }
 
 .dark-mode {
@@ -67,6 +67,14 @@ body {
 .message-name {
   font-weight: bold;
   margin-right: 5px;
+  font-size: 14px;
+}
+
+.dark-mode {
+  .message-name a {
+    color: white;
+  }
+
 }
 
 .message-name a {
@@ -217,4 +225,10 @@ body {
 
 .empty-messages {
   font-size: 0.5rem;
+}
+
+.dark-mode {
+  .message-input {
+    color: #3c4043 !important;
+  }
 }

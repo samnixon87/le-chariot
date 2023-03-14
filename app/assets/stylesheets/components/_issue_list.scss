@@ -51,7 +51,7 @@
   transition: 0.2s;
   color: $purple;
   font-size: 14px;
-  margin-bottom: 3px;
+  margin-bottom: 1px;
   border: 1px solid #F2F2F2;
 }
 
@@ -62,6 +62,15 @@
 .dark-mode {
   .issue {
     background-color: #3c4043;
+    border: 1px solid #3c4043;
+    color: white;
+  }
+
+  .issue.active {
+    background-color: #FDEEE6;
+    border-radius: 4px;
+    color: #333;
+    border: 1px solid $primary;
   }
 }
 
