@@ -73,9 +73,10 @@
 }
 
 .issue:hover {
-  background-color: rgba(98, 98, 98, 0.1);
+  background-color: #FDEEE6;
   border-radius: 4px;
-  cursor: pointer;
+  color: #333;
+  border: 1px solid $primary;
 }
 
 .search-bar {
