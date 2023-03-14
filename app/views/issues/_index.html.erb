@@ -1,7 +1,7 @@
 <div class="issue-list p-0">
   <div data-controller="search-issues">
     <div class="issue-top mx-3 position-relative">
-      <h4>Open Issues</h4>
+      <h4>Open Issues (<%= @issues.count %>)</h4>
       <%= link_to "Create new issue", new_channel_issue_path(@channel), class: "btn btn-primary w-100 mb-2" %>
     </div>
     <%= form_with url: channel_issues_path(@channel), method: :get, html: {class:"d-flex search-bar mx-3", data: {search_issues_target: "form"}} do |form| %>
