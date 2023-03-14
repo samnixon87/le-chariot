@@ -1,16 +1,16 @@
 <div class="container mt-4 pt-4">
   <div class="row m-0 p-0">
-    <div class="mb-4">
+    <div class="mb-4 pb-4">
       <div class="d-flex">
-        <%= image_tag "avatar-blue.jpeg", :class => "avatar-profile" %>
+        <%= image_tag @user.image, :class => "avatar-profile" %>
         <div class="ms-4 pt-2">
-          <% if current_user == @user %>
-            <h1>Your profile</h1>
-          <% else %>
-            <h1>@<%= @user.nickname %>'s Profile</h1>
-          <% end %>
+          <h1><strong><%= @user.nickname %></strong></h1>
           <li>Nickname: @<%= @user.nickname %></li>
           <li>Batch: <%= @user.batch %></li>
+          <% if @user.provider != nil %>
+            <li>GitHub profile: </li>
+            <li><%= @user.description %> </li>
+          <% end %>
           </div>
         <div class="profile-edit ms-auto p-2">
           <% if current_user == @user %>
@@ -21,8 +21,8 @@
     </div>
     <nav>
       <div class="nav nav-tabs mb-2" id="nav-tab" role="tablist">
-        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="false">Issues (<%= @user.issues.count %>) </button>
-        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Answers (<%= @user.messages.count %>)</button>
+        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="false">Questions asked (<%= @user.issues.count %>) </button>
+        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Questions answered (<%= @user.messages.count %>)</button>
       </div>
     </nav>
     <div class="tab-content" id="nav-tabContent">

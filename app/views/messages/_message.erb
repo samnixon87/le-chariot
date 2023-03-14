@@ -2,7 +2,7 @@
   <div class="message-content" data-controller="mark-complete">
     <div class="message-header">
       <div class="message-img">
-        <img src="https://via.placeholder.com/50x50" alt="User Image">
+        <%= image_tag message.user.image %>
       </div>
       <div class="message-name"><%= link_to message.user.nickname, user_path(message.user.id) %> - Batch #<%= message.user.batch %></div>
       <div class="message-time">
