@@ -18,9 +18,10 @@
       </div>
     </div>
     <div class="message-actions" id="pinColor">
-      <%# <button type="button" class="btn btn-secondary">Reply</button> %>
       <% unless current_user.favourite_messages.include?(message) %>
-        <%= link_to "👍",  message_favourites_path(message), data: { controller: "confetti", mark_complete_target: "like", confetti_follow_value: false, confetti_animation_value: "basic", action: "click->confetti#spray click->mark-complete#markComplete" }, class: "btn" %>
+        <div class="btn-primary">
+          <%= link_to "👍",  message_favourites_path(message), data: { controller: "confetti", mark_complete_target: "like", confetti_follow_value: false, confetti_animation_value: "basic", action: "click->confetti#spray click->mark-complete#markComplete" } %>
+        </div>
       <% end %>
       <%# Clicking like %>
       <script type="text/javascript">

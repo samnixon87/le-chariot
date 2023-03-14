@@ -47,7 +47,7 @@
         <% end %>
       </div>
     </div>
-    <div class="message-input mb-4 mt-auto">
+    <div class="message-input mt-auto pt-1">
       <%= simple_form_for [@issue, @message], html: { data: { issue_subscription_target: "form", action: "turbo:submit-start->issue-subscription#validateForm turbo:submit-end->issue-subscription#resetForm" } } do |f| %>
         <%= f.rich_text_area :content,
                     label: false,
