@@ -44,7 +44,7 @@
 
 .issue {
   display: block;
-  padding-left: 7px;
+  padding-left: 4px;
   padding-right: 7px;
   padding-bottom: 4px;
   padding-top: 4px;
@@ -73,9 +73,10 @@
 }
 
 .issue:hover {
-  background-color: rgba(98, 98, 98, 0.1);
+  background-color: #FDEEE6;
   border-radius: 4px;
-  cursor: pointer;
+  color: #333;
+  border: 1px solid $primary;
 }
 
 .search-bar {
