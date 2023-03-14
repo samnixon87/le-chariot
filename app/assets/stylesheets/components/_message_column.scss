@@ -2,6 +2,12 @@ body {
   background-color: #f2f2f2;
 }
 
+
+.issue-suggestion {
+  margin-bottom: 0px !important;
+  font-size: 13px;
+}
+
 .message-list {
   overflow: scroll;
   margin-top: 10px;
@@ -86,7 +92,7 @@ body {
 
 .message-content .message-actions {
   position: absolute;
-  right: 60px;
+  right: 10px;
   top: -24px;
   width: 60px;
   display: flex;
@@ -201,4 +207,11 @@ body {
   .chat-message-column {
     background-color: $gray;
   }
+}
+
+.related-code-block {
+  background-color: #212125;
+  // color: white;
+  font-family: monospace;
+  border-radius: 8px !important;
 }
