@@ -31,10 +31,6 @@ export default class extends Controller {
   }
 
   validateForm(event) {
-    console.dir(event.detail.formSubmission)
-    console.log("validating form")
-    console.log(event.target);
-    console.log(document.getElementById("message_content_trix_input_message").value)
     if (document.getElementById("message_content_trix_input_message").value == "") {
       console.log("Don't Submit")
       event.detail.formSubmission.stop()
@@ -47,12 +43,10 @@ export default class extends Controller {
   }
 
   #insertMessageAndScrollDown(data) {
-
     this.messagesTarget.insertAdjacentHTML("beforeend", data);
     if (this.hasEmptyTarget) {
       this.emptyTarget.outerHTML = "";
     }
-    console.log(this.messagesTarget);
     this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight);
   }
 }
