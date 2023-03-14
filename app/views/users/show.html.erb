@@ -5,11 +5,10 @@
         <%= image_tag @user.image, :class => "avatar-profile" %>
         <div class="ms-4 pt-2">
           <h1><strong><%= @user.nickname %></strong></h1>
-          <li>Nickname: @<%= @user.nickname %></li>
-          <li>Batch: <%= @user.batch %></li>
+          <li><i class="fa-solid fa-code"></i> Batch: <%= @user.batch %></li>
           <% if @user.provider != nil %>
-            <li>GitHub profile: </li>
-            <li><%= @user.description %> </li>
+            <li><i class="fa-brands fa-github"></i> GitHub profile: <%= link_to @user.nickname, "https://www.github.com/#{@user.nickname}", target: "_blank" %></li>
+            <li><i class="fa-solid fa-pencil"></i> Description: <%= @user.description %> </li>
           <% end %>
           </div>
         <div class="profile-edit ms-auto p-2">
