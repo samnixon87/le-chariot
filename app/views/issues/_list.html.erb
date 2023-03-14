@@ -1,8 +1,6 @@
 <div data-search-issues-target="list">
   <% @issues.reverse.each do |issue| %>
-    <div class="issue mx-3"
-          data-controller="issue-subscription"
-          data-channel-subscription-channel-id-value="<%= issue.id %>">
+    <div class="issue mx-3">
       <i class="fa-solid fa-code"></i> <%= link_to issue.title, channel_issue_path(issue.channel, issue), data: {action: "click->issues-messages#render", issues_messages_target: "issueLink"} %>
     </div>
   <% end %>

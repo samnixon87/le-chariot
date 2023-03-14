@@ -3,4 +3,6 @@ class Message < ApplicationRecord
   belongs_to :issue
   has_many :favourites, dependent: :destroy
   has_many :fans, through: :favourites, source: :user
+
+  validates :content, presence: true
 end
