@@ -2,6 +2,14 @@
   background-color: $green !important;
 }
 
+.dark-mode {
+  .green-background {
+    color: gray;
+    font-weight: bold;
+  }
+}
+
+
 .grey-background {
   background-color: lightgray !important;
 }
