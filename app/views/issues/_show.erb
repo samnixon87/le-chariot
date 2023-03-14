@@ -1,4 +1,4 @@
-<div  class="chat-message-column" data-controller="issue-subscription"
+<div class="chat-message-column" data-controller="issue-subscription"
       data-issue-subscription-issue-id-value="<%= @issue.id %>">
   <% if @issue.nil?  %>
     <div class="p-4">
@@ -48,7 +48,7 @@
         <% end %>
       </div>
     </div>
-    <div class="message-input mb-4">
+    <div class="message-input mb-4 mt-auto">
       <%= simple_form_for [@issue, @message], html: { data: { issue_subscription_target: "form", action: "turbo:submit-start->issue-subscription#validateForm turbo:submit-end->issue-subscription#resetForm" } } do |f| %>
         <%= f.rich_text_area :content,
                     label: false,
