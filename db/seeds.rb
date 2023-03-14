@@ -55,6 +55,8 @@ pp "Starting with some Ruby ones."
 Issue.create!(
   title: "Random record in ActiveRecord",
   description: "I'm in need of getting a random record from a table via ActiveRecord. I've followed the example from Jamis Buck from 2006. However, I've also come across another way via a Google search (can't attribute with a link due to new user restrictions)...",
+  code_block: 'rand_id = rand(Model.count)
+  rand_record = Model.first(:conditions => ["id >= ?", rand_id])',
   rating: 4,
   channel_id: Channel.first.id,
   user_id: User.order(Arel.sql('RANDOM()')).first.id
@@ -63,6 +65,22 @@ Issue.create!(
 Issue.create!(
   title: "How to trace method call in class instance in ruby",
   description: "How can i get traceback of method calls i did cat.sound, cat.food, cat.inspect so then i can prove that ruby found the method in correct class? (sound at Cat, food at Pet, and inspect at Object)",
+  code_block: 'class Pet
+  def food
+    "food"
+  end
+ end
+
+ class Cat < Pet
+   def sound
+    "meow"
+   end
+ end
+
+ cat = Cat.new
+ cat.sound
+ cat.food
+ cat.inspect',
   rating: 5,
   channel_id: Channel.first.id,
   user_id: User.order(Arel.sql('RANDOM()')).first.id
@@ -95,6 +113,29 @@ Issue.create!(
 Issue.create!(
   title: "How to handle authentication and authorization?",
   description: "I am new to web development and I am building a web application that requires user authentication and authorization. I don't know where to start and how to implement these features. Can someone explain to me the concepts of authentication and authorization and guide me on how to handle them in my web application?",
+  code_block: "class Auth0Controller < ApplicationController
+  def callback
+    # OmniAuth stores the information returned from Auth0 and the IdP in request.env['omniauth.auth'].
+    # In this code, you will pull the raw_info supplied from the id_token and assign it to the session.
+    # Refer to https://github.com/auth0/omniauth-auth0#authentication-hash for complete information on 'omniauth.auth' contents.
+    auth_info = request.env['omniauth.auth']
+    session[:credentials] = {}
+    session[:credentials][:id_token] = auth_info['credentials']['id_token']
+    session[:credentials][:access_token] = auth_info['credentials']['token']
+
+    # Redirect to the URL you want after successful auth
+    redirect_to '/dashboard'
+  end
+
+  def failure
+    # Handles failed authentication -- Show a failure page (you can also handle with a redirect)
+    @error_msg = request.params['message']
+  end
+
+  def logout
+    # you will finish this in a later step
+  end
+end",
   rating: 4,
   channel_id: Channel.first.id,
   user_id: User.order(Arel.sql('RANDOM()')).first.id

@@ -4,23 +4,21 @@
       <div class="message-img">
         <%= image_tag message.user.image %>
       </div>
-      <div class="message-name"><%= link_to message.user.nickname, user_path(message.user.id) %> - Batch #<%= message.user.batch %></div>
+      <div class="message-name"><%= link_to message.user.nickname, user_path(message.user.id) %> (Batch #<%= message.user.batch %>)</div>
       <div class="message-time">
         <%=distance_of_time_in_words(Time.now, message.created_at)%>
       </div>
     </div>
     <div class="message-body">
       <div id="message-<%= message.id %>">
-        <small>
-          <strong><%= message.user.nickname %></strong>
-        </small>
         <div class="trix-content"><%= message.content %></div>
       </div>
     </div>
     <div class="message-actions" id="pinColor">
-      <%# <button type="button" class="btn btn-secondary">Reply</button> %>
       <% unless current_user.favourite_messages.include?(message) %>
-        <%= link_to "👍",  message_favourites_path(message), data: { controller: "confetti", mark_complete_target: "like", confetti_follow_value: false, confetti_animation_value: "basic", action: "click->confetti#spray click->mark-complete#markComplete" }, class: "btn" %>
+        <div class="btn-primary">
+          <%= link_to "👍",  message_favourites_path(message), data: { controller: "confetti", mark_complete_target: "like", confetti_follow_value: false, confetti_animation_value: "basic", action: "click->confetti#spray click->mark-complete#markComplete" } %>
+        </div>
       <% end %>
       <%# Clicking like %>
       <script type="text/javascript">

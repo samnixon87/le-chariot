@@ -37,8 +37,8 @@ body {
 .message-content {
   background-color: white;
   padding: 10px;
-  border-radius: 1px;
-  border: solid 1px $green;
+  border-radius: 12px;
+  border: solid 1px #dddddd;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   flex-grow: 1;
   display: flex;
@@ -48,7 +48,7 @@ body {
 }
 
 .message-content:hover {
-  background-color: $light-gray;
+  background-color: #eeeeee;
 }
 
 .dark-mode {
@@ -67,6 +67,14 @@ body {
 .message-name {
   font-weight: bold;
   margin-right: 5px;
+  font-size: 14px;
+}
+
+.dark-mode {
+  .message-name a {
+    color: white;
+  }
+
 }
 
 .message-name a {
@@ -76,7 +84,7 @@ body {
 
 .message-name a:hover {
   text-decoration: none;
-  color: $orange;
+  // color: $orange;
 }
 
 .message-time {
@@ -101,21 +109,25 @@ body {
   margin-top: 10px;
 }
 
-.message-actions .btn {
+.message-actions .btn-primary {
+  background-color: white;
+  border: 1px solid $purple;
+  color: $purple;
+  margin: 2px;
   font-size: 12px;
   border-radius: 1px;
   padding-right: 1rem;
   padding-left: 1rem;
-  color: #000;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  color: $gray;
   line-height: 1;
 }
 
-.message-actions .btn-primary {
-  background-color: white;
-  border-color: $purple;
-  color: $purple;
-  margin: 2px;
+.message-actions .btn-primary a {
+  text-decoration: none;
 }
+
 
 .message-actions .btn-primary:hover {
   border-color: $purple;
@@ -123,21 +135,7 @@ body {
   color: white;
 }
 
-.message-actions .btn-secondary {
-  background-color: white;
-  border-color: #ccc;
-  color: #555;
-}
-
-.message-actions .btn-secondary:hover {
-  background-color: #f9f9f9;
-  border-color: #bbb;
-  color: #555;
-}
-
 .message-input {
-  // position: sticky;
-  // bottom: 0;
   margin-right: 8px;
   margin-top: 8px;
   justify-self: flex-end;
@@ -145,6 +143,14 @@ body {
 
 .message-input-bar {
   margin-right: 16px;
+}
+
+.trix-button-group {
+  background: white;
+}
+
+.message-input .trix-content {
+  background: white;
 }
 
 .message-helpful {
@@ -210,12 +216,19 @@ body {
 }
 
 .related-code-block {
-  background-color: #212125;
+  // background-color: #212125;
   // color: white;
-  font-family: monospace;
+  // font-family: monospace;
+  font-size: 14px;
   border-radius: 8px !important;
 }
 
 .empty-messages {
   font-size: 0.5rem;
+}
+
+.dark-mode {
+  .message-input {
+    color: #3c4043 !important;
+  }
 }

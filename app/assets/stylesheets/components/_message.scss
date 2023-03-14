@@ -1,6 +1,13 @@
 .green-background {
-  background-color: rgb(156, 231, 126) !important;
+  background-color: $green !important;
 }
+
+.dark-mode {
+  .green-background {
+    color: black;
+  }
+}
+
 
 .grey-background {
   background-color: lightgray !important;

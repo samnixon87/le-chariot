@@ -9,6 +9,7 @@
     "@rails/actiontext": "^7.0.4-2",
     "@rails/ujs": "^7.0.4-2",
     "bootstrap": "^5.2.3",
+    "highlightjs": "^9.16.2",
     "stimulus-confetti": "^1.0.1",
     "trix": "^2.0.4",
     "webpack": "^5.75.0",
