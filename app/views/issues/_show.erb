@@ -19,15 +19,13 @@
         <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
           <div class="accordion-body">
             <h6>Detailed issue description:</h6>
-            <div>
+            <div class="mb-4">
               <%= @issue.description %>
             </div>
             <% if @issue.code_block.present? %>
               <h6>Related code:</h6>
-              <div class="border rounded p-3 related-code-block">
-                <code>
-                  <div> <%= @issue.code_block %></div>
-                </code>
+              <div class="border rounded p-3 related-code-block" data-controller="highlight">
+                <pre><code><%= @issue.code_block %></code></pre>
               </div>
             <% end %>
           </div>
