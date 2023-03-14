@@ -1,4 +1,4 @@
-<div  class="chat-message-column" data-controller="issue-subscription"
+<div class="chat-message-column p-2" data-controller="issue-subscription"
       data-issue-subscription-issue-id-value="<%= @issue.id %>">
   <% if @issue.nil?  %>
     <div class="p-4">
@@ -34,12 +34,11 @@
         </div>
       </div>
     </div>
-    <div class="message-list border-top border-bottom">
-      <div class="messages" data-issue-subscription-target="messages">
+    <div class="message-list">
+      <div class="empty-messages p-2" data-issue-subscription-target="messages">
         <% if @issue.messages.empty? %>
           <div data-issue-subscription-target="empty">
-            <h6>No replies have been posted to this issue thread.</h6>
-            <p>Be the first one to help the student!</p>
+            <h6>No replies yet. You can be the first one to help.</h6>
           </div>
         <% else %>
           <% @issue.messages.each do |message| %>
@@ -48,7 +47,7 @@
         <% end %>
       </div>
     </div>
-    <div class="message-input mb-4">
+    <div class="message-input mb-4 mt-auto">
       <%= simple_form_for [@issue, @message], html: { data: { issue_subscription_target: "form", action: "turbo:submit-start->issue-subscription#validateForm turbo:submit-end->issue-subscription#resetForm" } } do |f| %>
         <%= f.rich_text_area :content,
                     label: false,
