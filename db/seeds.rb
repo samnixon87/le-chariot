@@ -27,6 +27,8 @@ pp "Reincarnating users..."
     first_name: Faker::Name.first_name,
     last_name: Faker::Games::ElderScrolls.last_name,
     nickname: Faker::Internet.username,
+    image: ["avatar-blue.jpeg","avatar-purple.jpeg","avatar-blue.gray","avatar-orange.jpeg"].sample,
+    description: Faker::Movies::HarryPotter.quote,
     batch: 1122,
     role: true
   )
@@ -35,8 +37,8 @@ end
 
 # Create users for dev
 pp "Creating admin accounts"
-User.create(email: "sam@gmail.com", password: "123123", nickname: "Sam", batch: "1122")
-User.create(email: "admin@admin.com", password: "123123", nickname: "Admin", batch: "1122")
+User.create(email: "sam@gmail.com", password: "123123", nickname: "Sam", batch: "1122", image: "avatar-purple.jpeg", description: "Extremely helpful code boi")
+User.create(email: "admin@admin.com", password: "123123", nickname: "Admin", batch: "1122", image: "avatar-blue.jpeg", description: "Admin friend")
 
 # Create new channels
 pp "Creating channel seeds..."
