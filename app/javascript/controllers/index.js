@@ -7,8 +7,14 @@ import { application } from "./application"
 import CopyController from "./copy_controller"
 application.register("copy", CopyController)
 
+import DarkModeController from "./dark_mode_controller"
+application.register("dark-mode", DarkModeController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import HighlightController from "./highlight_controller"
+application.register("highlight", HighlightController)
 
 import IssueSubscriptionController from "./issue_subscription_controller"
 application.register("issue-subscription", IssueSubscriptionController)
@@ -21,6 +27,3 @@ application.register("mark-complete", MarkCompleteController)
 
 import SearchIssuesController from "./search_issues_controller"
 application.register("search-issues", SearchIssuesController)
-
-// import { Confetti } from "/node_modules/stimulus-confetti"
-// application.register('confetti', Confetti)

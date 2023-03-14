@@ -115,6 +115,7 @@ body {
   color: $gray;
   line-height: 1;
 }
+
 .message-actions .btn-primary a {
   text-decoration: none;
 }
@@ -207,9 +208,10 @@ body {
 }
 
 .related-code-block {
-  background-color: #212125;
+  // background-color: #212125;
   // color: white;
-  font-family: monospace;
+  // font-family: monospace;
+  font-size: 14px;
   border-radius: 8px !important;
 }
 

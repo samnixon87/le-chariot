@@ -25,6 +25,8 @@ $border-radius-sm: 1px;
 
 // Override other variables below!
 
-// .btn-primary {
-//   color: #F2F2F2 !important;
-// }
+.dark-mode {
+  .btn {
+    color: #F2F2F2 !important;
+  }
+}
