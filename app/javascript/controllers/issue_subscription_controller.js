@@ -12,20 +12,34 @@ import { createConsumer } from "@rails/actioncable"
 // Connects to data-controller="issue-subscription"
 export default class extends Controller {
   static values = { issueId: Number }
-  static targets = ["messages"]
+  static targets = ["messages", "form", "empty"]
 
   connect() {
+    console.log(this.element);
     this.channel = createConsumer().subscriptions.create(
       { channel: "IssueChannel", id: this.issueIdValue },
       { received: data => this.#insertMessageAndScrollDown(data) }
     )
     console.log(`Subscribe to the Issue chatroom with the id ${this.issueIdValue}.`)
+    console.log(this.formTarget)
 
   }
 
   disconnect() {
     console.log(`Unsubscribe from the Issue chatroom with the id ${this.issueIdValue}.`);
     this.channel.unsubscribe()
+  }
+
+  validateForm(event) {
+    console.dir(event.detail.formSubmission)
+    console.log("validating form")
+    console.log(event.target);
+    console.log(document.getElementById("message_content_trix_input_message").value)
+    if (document.getElementById("message_content_trix_input_message").value == "") {
+      console.log("Don't Submit")
+      event.detail.formSubmission.stop()
+      console.dir(event.detail.formSubmission)
+    }
   }
 
   resetForm(event) {
@@ -35,7 +49,10 @@ export default class extends Controller {
   #insertMessageAndScrollDown(data) {
 
     this.messagesTarget.insertAdjacentHTML("beforeend", data);
-    this.messagesTarget.parentElement.parentElement.scrollTo(0, this.messagesTarget.parentElement.parentElement.scrollHeight);
-    console.log(`testing`)
+    if (this.hasEmptyTarget) {
+      this.emptyTarget.outerHTML = "";
+    }
+    console.log(this.messagesTarget);
+    this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight);
   }
 }

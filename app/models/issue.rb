@@ -14,6 +14,6 @@ class Issue < ApplicationRecord
                   using: { tsearch: { prefix: true } }
 
   validates :title, presence: true
-  validates :content, presence: true
+  validates :description, presence: true
 
 end
