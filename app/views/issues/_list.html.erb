@@ -1,7 +1,13 @@
 <div data-search-issues-target="list">
   <% @issues.each do |issue| %>
-    <div class="issue link-primary">
-      (<%= issue.messages.count %>) <%= link_to issue.title, channel_issue_path(issue.channel, issue), data: {action: "click->issues-messages#render", issues_messages_target: "issueLink"} %>
-    </div>
+      <% if @issue.id == issue.id %>
+        <div class="issue link-primary active">
+          (<%= issue.messages.count %>) <%= link_to issue.title, channel_issue_path(issue.channel, issue), data: {action: "click->issues-messages#render", issues_messages_target: "issueLink"}%>
+        </div>
+        <% else %>
+        <div class="issue link-primary">
+          (<%= issue.messages.count %>) <%= link_to issue.title, channel_issue_path(issue.channel, issue), data: {action: "click->issues-messages#render", issues_messages_target: "issueLink"} %>
+        </div>
+      <% end %>
   <% end %>
 </div>
