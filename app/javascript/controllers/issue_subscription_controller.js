@@ -25,6 +25,11 @@ export default class extends Controller {
 
   }
 
+  enterSubmit(e) {
+    e.preventDefault()
+    this.formTarget.requestSubmit()
+  }
+
   disconnect() {
     console.log(`Unsubscribe from the Issue chatroom with the id ${this.issueIdValue}.`);
     this.channel.unsubscribe()

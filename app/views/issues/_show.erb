@@ -47,11 +47,13 @@
     </div>
     <div class="message-input mt-auto pt-1">
       <%= simple_form_for [@issue, @message], html: { data: { issue_subscription_target: "form", action: "turbo:submit-start->issue-subscription#validateForm turbo:submit-end->issue-subscription#resetForm" } } do |f| %>
-        <%= f.rich_text_area :content,
-                    label: false,
-                    placeholder: "Message ##{@issue.title}",
-                    wrapper_html: {class: "flex-grow-1"}
-                  %>
+        <div data-issue-subscription-target="content", data-action="keydown.enter@document->issue-subscription#enterSubmit">
+          <%= f.rich_text_area :content,
+                      label: false,
+                      placeholder: "Message ##{@issue.title}",
+                      wrapper_html: {class: "flex-grow-1"}
+                    %>
+        </div>
         <%= f.submit "Reply", class: "btn btn-primary mt-2 mb-3" %>
       <% end %>
     </div>
