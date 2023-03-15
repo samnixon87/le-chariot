@@ -1,3 +1,9 @@
+<%
+  set_meta_tags(
+  title: "Create a new account | LeChariot",
+  description: "Sign up to LeChariot. Create a new account to get help with your coding queries.",
+  )
+%>
 <div class="container mt-4 pt-4 col-6">
   <div class="row mb-2">
     <h2>Sign up</h2>
@@ -7,8 +13,8 @@
           <%= button_to omniauth_authorize_path(resource_name, provider),
                         data: { turbo: false },
                         :class => "btn btn-primary col-12" do %>
-                          Sign up with GitHub <i class="fa-brands fa-github"></i>
-                        <% end %>
+            Sign up with GitHub <i class="fa-brands fa-github"></i>
+          <% end %>
         <% end %>
       <% end %>
     </div>
@@ -19,7 +25,6 @@
     </div>
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
       <%= f.error_notification %>
-
       <div class="form-inputs">
         <%= f.input :email,
                     required: true,
@@ -49,7 +54,6 @@
                     autofocus: true,
                     input_html: { autocomplete: "batch number" } %>
       </div>
-
       <div class="form-actions">
         <%= f.button :submit, "Sign up", :class => "btn btn-primary col-12" %>
       </div>
