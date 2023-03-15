@@ -28,7 +28,8 @@
       <div class="nav nav-tabs mb-2" id="nav-tab" role="tablist">
         <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="false">Questions asked (<%= @user.issues.count %>) </button>
         <button class="nav-link" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Questions answered (<%= @user.messages.count %>)</button>
-      </div>
+        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Questions liked (<%= @user.favourites.count %>)</button>
+     </div>
     </nav>
     <div class="tab-content" id="nav-tabContent">
       <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
@@ -40,7 +41,7 @@
                 <h2 class="title"><%= issue.title  %></h2>
               </div>
               <div class="content me-5">
-                <p><%= issue.description  %>.</p>
+                <p><%= issue.description %></p>
               </div>
             </div>
           <% end %>
@@ -52,7 +53,19 @@
             <div class="<%= ["wide", "yellow", "pink"].sample %> m-2 p-4 d-flex flex-column">
               <div class="card-nav mb-auto">
                 <div class="header"><%= message.issue.title %></div>
-                <h2 class="title"><%= message.content  %>.</h2>
+                <h2 class="title"><%= message.content %></h2>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+        <% @user.favourites.reverse.each do |favourite| %>
+          <%= link_to channel_path(favourite.message.issue.channel), class: "issues-card-link col-4" do %>
+            <div class="<%= ["wide", "yellow", "pink"].sample %> m-2 p-4 d-flex flex-column">
+              <div class="card-nav mb-auto">
+                <div class="header"><%= favourite.message.issue.title %></div>
+                <h2 class="title"><%= favourite.message.content %></h2>
               </div>
             </div>
           <% end %>
