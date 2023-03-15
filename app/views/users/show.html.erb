@@ -1,3 +1,9 @@
+<%
+  set_meta_tags(
+  title: "#{@user.nickname} Profile | LeChariot",
+  description: "Learn more about #{@user.nickname}. See what questions they asked and answered.",
+  )
+%>
 <div class="container mt-4 pt-4">
   <div class="row m-0 p-0">
     <div class="mb-4 pb-4">
@@ -10,7 +16,7 @@
             <li><i class="fa-brands fa-github"></i> GitHub profile: <%= link_to @user.nickname, "https://www.github.com/#{@user.nickname}", target: "_blank" %></li>
             <li><i class="fa-solid fa-pencil"></i> Description: <%= @user.description %> </li>
           <% end %>
-          </div>
+        </div>
         <div class="profile-edit ms-auto p-2">
           <% if current_user == @user %>
             <%= link_to "Edit", edit_user_registration_path, :class => "btn" %>
@@ -34,7 +40,7 @@
                 <h2 class="title"><%= issue.title  %></h2>
               </div>
               <div class="content me-5">
-                  <p><%= issue.description  %>.</p>
+                <p><%= issue.description  %>.</p>
               </div>
             </div>
           <% end %>

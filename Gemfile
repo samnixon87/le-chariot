@@ -94,3 +94,4 @@ gem "foreman", github: "ddollar/foreman"
 gem "pg_search"
 # Pin It Gem
 gem 'pin_it', '~> 0.0.7'
+gem "meta-tags"

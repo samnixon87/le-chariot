@@ -1,3 +1,9 @@
+<%
+  set_meta_tags(
+  title: "#{@channel.name} Issues & Answers | LeChariot",
+  description: "Get some help with your #{@channel.name} questions, even after the bootcamp.",
+  )
+%>
 <!-- Languages column -->
 <div class="row chat-window me-0"
   data-controller="issues-messages">
@@ -8,8 +14,8 @@
   </div>
   <!-- Issues list column -->
   <div class="col-3 issue-column">
-      <%= render "issues/index" %>
-      <!-- The active issue class will be assigned based on click - stimulus controller required, attach controller to list -->
+    <%= render "issues/index" %>
+    <!-- The active issue class will be assigned based on click - stimulus controller required, attach controller to list -->
   </div>
   <!-- Issue messages column -->
   <div class="col-8 flex-grow-1 px-0"
