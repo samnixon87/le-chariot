@@ -11,10 +11,10 @@
         <%= image_tag @user.image, :class => "avatar-profile" %>
         <div class="ms-4 pt-2">
           <h1><strong><%= @user.nickname %></strong></h1>
-          <li><i class="fa-solid fa-code"></i> Batch: <%= @user.batch %></li>
+          <li class="profile-details"><i class="fa-solid fa-code"></i> Batch: <%= @user.batch %></li>
           <% if @user.provider != nil %>
-            <li><i class="fa-brands fa-github"></i> GitHub profile: <%= link_to @user.nickname, "https://www.github.com/#{@user.nickname}", target: "_blank" %></li>
-            <li><i class="fa-solid fa-pencil"></i> Description: <%= @user.description %> </li>
+            <li class="profile-details"><i class="fa-brands fa-github"></i> GitHub profile: <%= link_to @user.nickname, "https://www.github.com/#{@user.nickname}", target: "_blank" %></li>
+            <li class="profile-details"><i class="fa-solid fa-pencil"></i> Description: <%= @user.description %> </li>
           <% end %>
         </div>
         <div class="profile-edit ms-auto p-2">
@@ -40,7 +40,7 @@
                 <h2 class="title"><%= issue.title  %></h2>
               </div>
               <div class="content me-5">
-                <p><%= issue.description  %>.</p>
+                <p><%= issue.description  %></p>
               </div>
             </div>
           <% end %>
@@ -52,7 +52,7 @@
             <div class="<%= ["wide", "yellow", "pink"].sample %> m-2 p-4 d-flex flex-column">
               <div class="card-nav mb-auto">
                 <div class="header"><%= message.issue.title %></div>
-                <h2 class="title"><%= message.content  %>.</h2>
+                <h2 class="title"><%= message.content  %></h2>
               </div>
             </div>
           <% end %>

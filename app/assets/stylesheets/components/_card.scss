@@ -41,15 +41,24 @@
 
 .header {
   font-size: 0.7rem;
-  font-weight: lighter;
+  font-weight: bold;
+  background-color: white;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  display: inline-block;
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
 
 .title {
   font-size: 2rem;
   font-weight: bold;
+  margin-bottom: 0px !important;
 }
 
-.issues-card-link{
+.issues-card-link {
   text-decoration: none;
   color: #181F25;
 }
