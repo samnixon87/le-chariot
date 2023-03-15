@@ -1,7 +1,6 @@
-<div class="container mt-4 pt-4 col-4 d-flex">
+<div class="container mt-4 pt-4 col-4 d-flex login-signup-window">
   <div class="row">
     <h2>Log in</h2>
-
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: :false }) do |f| %>
       <div class="form-inputs">
         <%= f.input :email,
@@ -13,7 +12,6 @@
                     input_html: { autocomplete: "current-password" } %>
         <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
       </div>
-
       <div class="form-actions">
         <%= f.button :submit, "Log in", class: "btn btn-primary btn-lg btn-block col-12" %>
       </div>
@@ -29,12 +27,11 @@
           <%= button_to omniauth_authorize_path(resource_name, provider),
                         data: { turbo: false },
                         :class => "btn btn-primary col-12" do %>
-                          Log in with GitHub <i class="fa-brands fa-github"></i>
-                        <% end %>
+            Log in with GitHub <i class="fa-brands fa-github"></i>
+          <% end %>
         <% end %>
       <% end %>
     </div>
-
     <div class="py-2 d-flex justify-content-between">
       <%= render "devise/shared/links" %>
     </div>
