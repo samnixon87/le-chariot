@@ -6,7 +6,7 @@
       </div>
       <div class="message-name"><%= link_to message.user.nickname, user_path(message.user.id) %> (Batch #<%= message.user.batch %>)</div>
       <div class="message-time">
-        <%=distance_of_time_in_words(Time.now, message.created_at)%>
+        <%=distance_of_time_in_words(Time.now, message.created_at)%> ago
       </div>
     </div>
     <div class="message-body">
@@ -14,8 +14,8 @@
         <div class="trix-content"><%= message.content %></div>
       </div>
       <br>
-      <div>
-        <strong><p><%= pluralize( message.favourites.count, "person") %> found this useful!</p></strong>
+      <div class="d-flex flex-row-reverse align-items-center useful-info">
+        &nbsp;<%= pluralize( message.favourites.count, "person") %> found this useful.<i class="fa-regular fa-star"></i>
       </div>
     </div>
     <div class="message-actions" id="pinColor">
