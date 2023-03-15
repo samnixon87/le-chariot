@@ -41,7 +41,7 @@
                 <h2 class="title"><%= issue.title  %></h2>
               </div>
               <div class="content me-5">
-                <p><%= issue.description %></p>
+                <p><%= issue.description.to_plain_text.truncate(200) %></p>
               </div>
             </div>
           <% end %>
@@ -53,7 +53,7 @@
             <div class="<%= ["wide", "yellow", "pink"].sample %> m-2 p-4 d-flex flex-column">
               <div class="card-nav mb-auto">
                 <div class="header"><%= message.issue.title %></div>
-                <h2 class="title"><%= message.content %></h2>
+                <h2 class="title"><%= message.content.to_plain_text.truncate(200) %></h2>
               </div>
             </div>
           <% end %>
@@ -65,7 +65,7 @@
             <div class="<%= ["wide", "yellow", "pink"].sample %> m-2 p-4 d-flex flex-column">
               <div class="card-nav mb-auto">
                 <div class="header"><%= favourite.message.issue.title %></div>
-                <h2 class="title"><%= favourite.message.content %></h2>
+                <h2 class="title"><%= favourite.message.content.to_plain_text.truncate(200) %></h2>
               </div>
             </div>
           <% end %>
