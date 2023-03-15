@@ -12,7 +12,7 @@
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
             <div>
               <h4 class="issue-title-header mt-1"># <%= @issue.title.downcase %></h4>
-              <p class="text-muted issue-suggestion">Click here to see a detailed description of the issue</p>
+              <p class="text-muted issue-suggestion">→ Click here to see a detailed description of the issue</p>
             </div>
           </button>
         </h2>
@@ -54,7 +54,7 @@
                       wrapper_html: {class: "flex-grow-1"}
                     %>
         </div>
-        <%= f.submit "Reply", class: "btn btn-primary mt-2 mb-3" %>
+        <%= f.submit "Reply", class: "btn btn-primary mt-2 mb-3 btn-white-text" %>
       <% end %>
     </div>
   <% end %>
