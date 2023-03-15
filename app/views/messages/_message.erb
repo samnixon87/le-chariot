@@ -13,6 +13,10 @@
       <div id="message-<%= message.id %>">
         <div class="trix-content"><%= message.content %></div>
       </div>
+      <br>
+      <div>
+        <strong><p><%= pluralize( message.favourites.count, "person") %> found this useful!</p></strong>
+      </div>
     </div>
     <div class="message-actions" id="pinColor">
       <% unless current_user.favourite_messages.include?(message) %>
