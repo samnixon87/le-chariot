@@ -25,7 +25,7 @@
         </div>
       <% end %>
       <%# Clicking like %>
-      <script type="text/javascript">
+      <%# <script type="text/javascript">
         var clicks = 0;
         function hello(likesId, messageId) {
           var clicksElement = document.getElementById(likesId);
@@ -35,9 +35,9 @@
           xhr.open("POST", "/like/" + messageId);
           xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
           xhr.send(JSON.stringify({ message_id: messageId }));
-        };
+        }; %>
               //
-      </script>
+      <%# </script> %>
       <%# <button type="button" class="btn btn-primary">Hint</button> %>
     </div>
   </div>
