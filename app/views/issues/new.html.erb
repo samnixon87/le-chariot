@@ -1,3 +1,9 @@
+<%
+  set_meta_tags(
+  title: "Create a New Issue | LeChariot",
+  description: "Create a new code issue to get help from the LeChariot community.",
+  )
+%>
 <div class="container">
   <div class="row">
     <div class="mt-4 p-4 col border rounded-lg bg-light issue-creation-box me-4">
@@ -47,11 +53,11 @@
       </div>
       <p>Paste your problem below.</p>
       <%= form_for :ai_request, url: ai_request_path, method: :post, remote: true do |f| %>
-  <%= f.hidden_field :uuid, value: @uuid %>
-  <div class="form-group">
-    <%= f.text_area :prompt, class:"form-control", placeholder: "My code is returning missing <div>..." %>
-  </div>
-  <%# f.select :ai_model, options_for_select([
+        <%= f.hidden_field :uuid, value: @uuid %>
+        <div class="form-group">
+          <%= f.text_area :prompt, class:"form-control", placeholder: "My code is returning missing <div>..." %>
+        </div>
+        <%# f.select :ai_model, options_for_select([
         [ "Ada $0.0016 / 1K tokens", "ada" ],
         [ "Babbage $0.0024 / 1K tokens", "babbage" ],
         [ "Curie $0.0120 / 1K tokens", "curie" ],
@@ -60,19 +66,19 @@
         [ "DALL-E 512×512	$0.018 / image", "image/512x512"],
         [ "DALL-E 256×256	$0.016 / image", "image/256x256"],
     ], "davinci"), {}, class:"form-control" %>
-  <%= f.submit "Help me refine my issue", class:"btn btn-outline-primary mb-4 mt-4 float-left" %>
-<% end %>
-<p>Refined problem.</p>
-<div data-controller="copy" class="p-4 mb-4 mt-4 border rounded chat-hint-box">
-  <%= turbo_stream_from "channel_#{@uuid}" %>
-  <div data-copy-target="text" id="ai_output">
-    <%= render partial: "ai/output", locals: { generated_idea: "" } %>
-  </div>
-  <div id="ai_output_image">
-    <%# render partial: "ai/output_image", locals: { generated_image: "" } %>
-  <button data-copy-target="button" class="btn btn-secondary mt-2" data-action="click->copy#copyText">Copy text</button>
-  </div>
-</div>
+        <%= f.submit "Help me refine my issue", class:"btn btn-outline-primary mb-4 mt-4 float-left" %>
+      <% end %>
+      <p>Refined problem.</p>
+      <div data-controller="copy" class="p-4 mb-4 mt-4 border rounded chat-hint-box">
+        <%= turbo_stream_from "channel_#{@uuid}" %>
+        <div data-copy-target="text" id="ai_output">
+          <%= render partial: "ai/output", locals: { generated_idea: "" } %>
+        </div>
+        <div id="ai_output_image">
+          <%# render partial: "ai/output_image", locals: { generated_image: "" } %>
+          <button data-copy-target="button" class="btn btn-secondary mt-2" data-action="click->copy#copyText">Copy text</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -27,7 +27,7 @@ pp "Reincarnating users..."
     first_name: Faker::Name.first_name,
     last_name: Faker::Games::ElderScrolls.last_name,
     nickname: Faker::Internet.username,
-    image: ["avatar-blue.jpeg","avatar-purple.jpeg","avatar-blue.gray","avatar-orange.jpeg"].sample,
+    image: ["avatar-blue.jpeg","avatar-purple.jpeg","avatar-blue.jpeg","avatar-orange.jpeg"].sample,
     description: Faker::Movies::HarryPotter.quote,
     batch: 1122,
     role: true
