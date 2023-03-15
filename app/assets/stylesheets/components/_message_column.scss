@@ -229,6 +229,10 @@ body {
 
 .dark-mode {
   .message-input {
-    color: #3c4043 !important;
+    // color: #3c4043 !important;
+  }
+
+  .message-input .trix-content {
+    background-color: #171a21;
   }
 }
