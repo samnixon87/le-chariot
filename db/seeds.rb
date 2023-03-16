@@ -435,6 +435,8 @@ Issue.create!(
   channel_id: Channel.first.id,
   user_id: User.order(Arel.sql('RANDOM()')).first.id
 )
+pp "Now adding pre-made responses"
+pp "Adding responses to the first issue..."
 
 Issue.create!(
   title: "Rails sort by column on multiple tables",
@@ -446,8 +448,13 @@ Issue.create!(
   user_id: User.order(Arel.sql('RANDOM()')).first.id
 )
 
-pp "Now adding pre-made responses"
-pp "Adding responses to the first issue..."
+Message.create!(
+  content: "I would just use the Rails built in: link_to 'GOOGLE', 'http://www.google.com', target: '_blank', class: 'btn btn-large btn-primary'.",
+  rating: 4,
+  issue_id: Issue.last.id,
+  user_id: User.order(Arel.sql('RANDOM()')).first.id,
+  pinned: true
+)
 
 Message.create!(
 content: "Both methods are valid and will give you a random record from the table, but there are some differences to consider. The first method you mentioned from Jamis Buck involves using a random ordering of the records, and then selecting the first record from that ordering. This approach can be slow for large tables, as it requires the database to sort all of the records before selecting the first one. However, it may be more precise if you want a truly random record, as it ensures that all records have an equal chance of being selected. The second method you found involves generating a random ID and then selecting the first record with an ID greater than or equal to that random ID. This approach is faster, as it only needs to look up a single record based on its ID. However, it may not be as precise, as there could be gaps in the ID sequence (e.g. if records were deleted), which could skew the distribution of selected records. In terms of efficiency, the second method is likely to be faster for large tables, but the first method may be more precise. Ultimately, the best approach will depend on your specific use case and performance requirements.",
@@ -464,24 +471,6 @@ Message.create!(
   user_id: User.order(Arel.sql('RANDOM()')).first.id,
   pinned: false
   )
-
-pp "Rails sort by column issue and messages"
-Issue.create!(
-  title: "Rails sort by column on multiple tables",
-  description: "I'm refresshing myself on rails... I would like to add (:target => '_blank') to link_to helper below link_to 'GOOGLE', 'http://www.google.com', class: 'btn btn-large btn-primary'
-  But I would like to use the application_helper to define link_to method. How do I define the link_to methd in application_helper? How do I pass the class: 'btn btn-large btn-primary' in the link_to method? Thank you for your assistance...",
-  rating: 5,
-  channel_id: Channel.second.id,
-  user_id: User.order(Arel.sql('RANDOM()')).first.id
-)
-
-Message.create!(
-  content: "I would just use the Rails built in: link_to 'GOOGLE', 'http://www.google.com', target: '_blank', class: 'btn btn-large btn-primary'.",
-  rating: 4,
-  issue_id: Issue.last.id,
-  user_id: User.order(Arel.sql('RANDOM()')).first.id,
-  pinned: true
-)
 
 pp "Rails 404"
 Issue.create!(
