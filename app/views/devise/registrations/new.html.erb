@@ -53,6 +53,7 @@
                     required: true,
                     autofocus: true,
                     input_html: { autocomplete: "batch number" } %>
+        <%= f.hidden_field :image, :value => "avatar-blue.jpeg" %>
       </div>
       <div class="form-actions">
         <%= f.button :submit, "Sign up", :class => "btn btn-primary col-12" %>

@@ -28,7 +28,7 @@
       <div class="nav nav-tabs mb-2" id="nav-tab" role="tablist">
         <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="false">Questions asked (<%= @user.issues.count %>) </button>
         <button class="nav-link" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Questions answered (<%= @user.messages.count %>)</button>
-        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Questions liked (<%= @user.favourites.count %>)</button>
+        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Answers liked (<%= @user.favourites.count %>)</button>
      </div>
     </nav>
     <div class="tab-content" id="nav-tabContent">
@@ -52,8 +52,8 @@
           <%= link_to channel_path(message.issue.channel), class: "issues-card-link col-4" do %>
             <div class="<%= ["wide", "yellow", "pink"].sample %> m-2 p-4 d-flex flex-column">
               <div class="card-nav mb-auto">
-                <div class="header"><%= message.issue.title %></div>
-                <h2 class="title"><%= message.content.to_plain_text.truncate(200) %></h2>
+                <div class="title"><%= message.issue.title %></div>
+                <p><%= message.content.to_plain_text.truncate(200) %></p>
               </div>
             </div>
           <% end %>
@@ -64,8 +64,8 @@
           <%= link_to channel_path(favourite.message.issue.channel), class: "issues-card-link col-4" do %>
             <div class="<%= ["wide", "yellow", "pink"].sample %> m-2 p-4 d-flex flex-column">
               <div class="card-nav mb-auto">
-                <div class="header"><%= favourite.message.issue.title %></div>
-                <h2 class="title"><%= favourite.message.content.to_plain_text.truncate(200) %></h2>
+                <div class="title"><%= favourite.message.issue.title %></div>
+                <p><%= favourite.message.content.to_plain_text.truncate(200) %></p>
               </div>
             </div>
           <% end %>
