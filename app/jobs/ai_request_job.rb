@@ -10,7 +10,7 @@ class AiRequestJob < ApplicationJob
       req.headers['Content-Type'] = 'application/json'
       req.headers['Authorization'] = "Bearer #{api_key}"
       req.body = {
-        prompt: "'Can you describe what's happening in the following code and end it with an actionable question to help a tutor understand what's wrong with the code? #{ai_request_params[:prompt]}'",
+        prompt: "This code doesn't work: #{ai_request_params[:prompt]} Could you form it into a question that I could ask someone?",
         max_tokens: 250,
         temperature: 0.5,
         n: 1
@@ -25,6 +25,6 @@ class AiRequestJob < ApplicationJob
     Turbo::StreamsChannel.broadcast_update_to("channel_#{uuid}",
                                               target: 'ai_output',
                                               partial: 'ai/output',
-                                              locals: { generated_idea: generated_idea})
+                                              locals: { generated_idea: })
   end
 end
