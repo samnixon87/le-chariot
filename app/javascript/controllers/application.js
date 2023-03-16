@@ -6,3 +6,6 @@ application.debug = false
 window.Stimulus   = application
 
 export { application }
+
+import { Confetti } from "stimulus-confetti"
+application.register('confetti', Confetti)
