@@ -55,7 +55,7 @@ pp "Let's begin with the filler..."
 Channel.all.each do |channel|
   rand(5..15).times do
     Issue.create!(
-      title: "#{["Help with", "Can't seem to", "What is", "I've been struggling with", "Help...", "WTF is"].sample} #{Faker::Hacker.ingverb} #{Faker::Hacker.adjective} #{Faker::Hacker.abbreviation}",
+      title: "#{["Help with", "Can't seem to", "What is", "I've been struggling with", "Help..."].sample} #{Faker::Hacker.ingverb} #{Faker::Hacker.adjective} #{Faker::Hacker.abbreviation}",
       description: "#{Faker::Hacker.say_something_smart}",
       rating: rand(1..5),
       channel_id: Channel.all.sample.id,
@@ -376,7 +376,7 @@ Message.create!(
 
 Message.create!(
   content: "Tbh, there are a bunch of good logging tools but just follow the basics:
-  
+
   Enable logging: This sounds obvious, but double check you have enabled logging (in whatever tool you use) before deploying your application and don’t solely rely on your infrastructure logging.
 
   Categorize your logs: As an application grows in usage, the quantity of logs it generates will grow and the ability to filter logs to particular categories or error levels such as authorization, access, or critical can help you drill down into a barrage of information.
