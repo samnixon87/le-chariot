@@ -13,9 +13,11 @@ The platform allows students to be active in the Le Wagon community even after t
 - Create 'issues', discuss them with other users, and upvote the most helpful ones
 - Reply to 'issues' as a user, and earn reputation
 - View your created, solved, and unanswered issues
-- Live chatroom for discussing of issues between users
+- Live chatroom for users to discuss issues
 - ChatGPT API call transforms code blocks into improved prompts
 - Browse channels by topic (React, CSS, JS...)
+- Confetti on 'like'
+- Single page application
 
 ## Try our live demo
 Try [Le Chariot](https://www.lechariot.net) !
