@@ -16,7 +16,7 @@ The platform allows students to be active in the Le Wagon community even after t
 - Live chatroom for users to discuss issues
 - ChatGPT API call transforms code blocks into improved prompts
 - Browse channels by topic (React, CSS, JS...)
-- Confetti on 'like'
+- Confetti on 'like' button
 - Single page application
 
 ## Try our live demo
