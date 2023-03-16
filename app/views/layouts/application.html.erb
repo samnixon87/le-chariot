@@ -16,7 +16,7 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
-  <body data-controller="dark-mode">
+  <body data-controller="dark-mode" class="d-flex flex-column">
     <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
     <%= yield %>
