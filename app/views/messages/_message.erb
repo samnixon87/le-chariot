@@ -6,7 +6,7 @@
       </div>
       <div class="message-name"><%= link_to message.user.nickname, user_path(message.user.id) %> (Batch #<%= message.user.batch %>)</div>
       <div class="message-time">
-        <%=distance_of_time_in_words(Time.now, message.created_at)%> ago
+        <%=distance_of_time_in_words(Time.now, message.created_at)%>
       </div>
     </div>
     <div class="message-body">
@@ -14,14 +14,15 @@
         <div class="trix-content"><%= message.content %></div>
       </div>
       <br>
-      <div class="d-flex flex-row-reverse align-items-center useful-info">
-        &nbsp;<%= pluralize( message.favourites.count, "person") %> found this useful.<i class="fa-regular fa-star"></i>
+      <div class="d-flex">
+        <p data-mark-complete-target="count" data-like-count="<%= message.favourites.count %>"><strong><%= message.favourites.count %></strong></p>
+        <p class="ms-1">likes</p>
       </div>
     </div>
     <div class="message-actions" id="pinColor">
       <% unless current_user.favourite_messages.include?(message) %>
         <div class="btn-primary">
-          <%= link_to "👍",  message_favourites_path(message), data: { controller: "confetti", mark_complete_target: "like", confetti_follow_value: false, confetti_animation_value: "basic", action: "click->confetti#spray click->mark-complete#markComplete" } %>
+          <%= link_to "👍",  message_favourites_path(message), data: { controller: "confetti", mark_complete_target: "like", confetti_follow_value: false, confetti_animation_value: "basic", action: "click->mark-complete#markComplete click->confetti#spray " } %>
         </div>
       <% end %>
       <%# Clicking like %>
@@ -36,6 +37,7 @@
           xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
           xhr.send(JSON.stringify({ message_id: messageId }));
         }; %>
+              //
       <%# </script> %>
       <%# <button type="button" class="btn btn-primary">Hint</button> %>
     </div>
