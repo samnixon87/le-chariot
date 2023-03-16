@@ -69,7 +69,7 @@
       <p>Refined problem.</p>
       <div data-controller="copy" class="mb-4 mt-4">
         <%= turbo_stream_from "channel_#{@uuid}" %>
-        <div data-copy-target="text" id="ai_output" class="p-2">
+        <div data-copy-target="text" id="ai_output">
           <%= render partial: "ai/output", locals: { generated_idea: "" } %>
         </div>
         <div id="ai_output_image">
