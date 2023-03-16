@@ -95,7 +95,7 @@ body {
 
 .message-body {
   margin: 5px 0;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.5;
 }
 
@@ -236,4 +236,12 @@ body {
   .message-input .trix-content {
     background-color: #171a21;
   }
+}
+
+.accordion-body .trix-content {
+  font-size: 14px;
+}
+
+.message-body p {
+  margin-bottom: 0px;
 }
